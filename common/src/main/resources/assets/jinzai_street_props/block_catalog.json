@@ -1,0 +1,3489 @@
+{
+  "schema": 1,
+  "blocks": [
+    {
+      "id": "jinzai_street_light_1",
+      "category": "street_lights",
+      "kind": "light_head",
+      "placement": "horizontal",
+      "collision_mode": "bounding",
+      "light_level": 15,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_light_1",
+      "collision_boxes": [
+        [
+          5.5,
+          7,
+          5.5,
+          10.5,
+          9.1,
+          16
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_light_10",
+      "category": "street_lights",
+      "kind": "light_head",
+      "placement": "horizontal",
+      "collision_mode": "bounding",
+      "light_level": 15,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_light_10",
+      "collision_boxes": [
+        [
+          5.5,
+          3.272693,
+          5.765381,
+          10.5,
+          9.1,
+          16
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_light_10a",
+      "category": "street_lights",
+      "kind": "light_head",
+      "placement": "horizontal",
+      "collision_mode": "bounding",
+      "light_level": 15,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_light_10a",
+      "collision_boxes": [
+        [
+          5.5,
+          2.507327,
+          2.993742,
+          10.5,
+          9.1,
+          16
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_light_10b",
+      "category": "street_lights",
+      "kind": "light_head",
+      "placement": "horizontal",
+      "collision_mode": "bounding",
+      "light_level": 15,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_light_10b",
+      "collision_boxes": [
+        [
+          5.5,
+          2.507327,
+          2.993742,
+          10.5,
+          9.1,
+          16
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_light_10c",
+      "category": "street_lights",
+      "kind": "light_head",
+      "placement": "horizontal",
+      "collision_mode": "bounding",
+      "light_level": 15,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_light_10c",
+      "collision_boxes": [
+        [
+          5.5,
+          3.272693,
+          5.765381,
+          10.5,
+          9.1,
+          16
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_light_11",
+      "category": "street_lights",
+      "kind": "light_head",
+      "placement": "horizontal",
+      "collision_mode": "bounding",
+      "light_level": 15,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_light_11",
+      "collision_boxes": [
+        [
+          5,
+          7,
+          1,
+          11,
+          12,
+          16
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_light_11a",
+      "category": "street_lights",
+      "kind": "light_head",
+      "placement": "horizontal",
+      "collision_mode": "bounding",
+      "light_level": 15,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_light_11a",
+      "collision_boxes": [
+        [
+          5,
+          7,
+          1,
+          11,
+          12,
+          16
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_light_12",
+      "category": "street_lights",
+      "kind": "light_head",
+      "placement": "horizontal",
+      "collision_mode": "bounding",
+      "light_level": 15,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_light_12",
+      "collision_boxes": [
+        [
+          4.5,
+          6.5,
+          3,
+          11.5,
+          11.1,
+          16
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_light_13",
+      "category": "street_lights",
+      "kind": "light_head",
+      "placement": "horizontal",
+      "collision_mode": "bounding",
+      "light_level": 15,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_light_13",
+      "collision_boxes": [
+        [
+          0.9,
+          -3,
+          -15.1,
+          15.1,
+          21.065864,
+          9.005204
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_light_13a",
+      "category": "street_lights",
+      "kind": "light_head",
+      "placement": "horizontal",
+      "collision_mode": "bounding",
+      "light_level": 15,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_light_13a",
+      "collision_boxes": [
+        [
+          0.9,
+          -3,
+          -15.1,
+          15.1,
+          21.065864,
+          31.1
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_light_14",
+      "category": "street_lights",
+      "kind": "light_head",
+      "placement": "horizontal",
+      "collision_mode": "bounding",
+      "light_level": 15,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_light_14",
+      "collision_boxes": [
+        [
+          2.9,
+          0,
+          -13.1,
+          13.1,
+          22,
+          29.1
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_light_15",
+      "category": "street_lights",
+      "kind": "light_head",
+      "placement": "horizontal",
+      "collision_mode": "bounding",
+      "light_level": 15,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_light_15",
+      "collision_boxes": [
+        [
+          0.9,
+          -5,
+          1.9,
+          15.1,
+          10,
+          16.1
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_light_16",
+      "category": "street_lights",
+      "kind": "light_head",
+      "placement": "horizontal",
+      "collision_mode": "bounding",
+      "light_level": 15,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_light_16",
+      "collision_boxes": [
+        [
+          5.5,
+          6.5,
+          6,
+          11.5,
+          9.1,
+          16
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_light_1a",
+      "category": "street_lights",
+      "kind": "light_head",
+      "placement": "horizontal",
+      "collision_mode": "bounding",
+      "light_level": 15,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_light_1a",
+      "collision_boxes": [
+        [
+          5.5,
+          7,
+          5.606574,
+          10.5,
+          11.954197,
+          16
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_light_1b",
+      "category": "street_lights",
+      "kind": "light_head",
+      "placement": "horizontal",
+      "collision_mode": "bounding",
+      "light_level": 15,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_light_1b",
+      "collision_boxes": [
+        [
+          5.5,
+          7,
+          5.5,
+          10.5,
+          9.1,
+          16
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_light_1c",
+      "category": "street_lights",
+      "kind": "light_head",
+      "placement": "horizontal",
+      "collision_mode": "bounding",
+      "light_level": 15,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_light_1c",
+      "collision_boxes": [
+        [
+          5.5,
+          7,
+          5.606574,
+          10.5,
+          11.954197,
+          16
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_light_2",
+      "category": "street_lights",
+      "kind": "light_head",
+      "placement": "horizontal",
+      "collision_mode": "bounding",
+      "light_level": 15,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_light_2",
+      "collision_boxes": [
+        [
+          6,
+          7,
+          2,
+          10,
+          9.1,
+          16
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_light_2a",
+      "category": "street_lights",
+      "kind": "light_head",
+      "placement": "horizontal",
+      "collision_mode": "bounding",
+      "light_level": 15,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_light_2a",
+      "collision_boxes": [
+        [
+          6,
+          7,
+          2,
+          10,
+          9.1,
+          16
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_light_3",
+      "category": "street_lights",
+      "kind": "light_head",
+      "placement": "horizontal",
+      "collision_mode": "bounding",
+      "light_level": 15,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_light_3",
+      "collision_boxes": [
+        [
+          5,
+          7,
+          4,
+          11,
+          9.1,
+          16
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_light_3a",
+      "category": "street_lights",
+      "kind": "light_head",
+      "placement": "horizontal",
+      "collision_mode": "bounding",
+      "light_level": 15,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_light_3a",
+      "collision_boxes": [
+        [
+          5,
+          7,
+          1,
+          11,
+          9.1,
+          16
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_light_3b",
+      "category": "street_lights",
+      "kind": "light_head",
+      "placement": "horizontal",
+      "collision_mode": "bounding",
+      "light_level": 15,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_light_3b",
+      "collision_boxes": [
+        [
+          5,
+          7,
+          1,
+          11,
+          9.1,
+          16
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_light_3c",
+      "category": "street_lights",
+      "kind": "light_head",
+      "placement": "horizontal",
+      "collision_mode": "bounding",
+      "light_level": 15,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_light_3c",
+      "collision_boxes": [
+        [
+          5,
+          7,
+          4,
+          11,
+          9.1,
+          16
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_light_4",
+      "category": "street_lights",
+      "kind": "light_head",
+      "placement": "horizontal",
+      "collision_mode": "bounding",
+      "light_level": 15,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_light_4",
+      "collision_boxes": [
+        [
+          5,
+          7,
+          3,
+          11,
+          9.1,
+          16
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_light_5",
+      "category": "street_lights",
+      "kind": "light_head",
+      "placement": "horizontal",
+      "collision_mode": "bounding",
+      "light_level": 15,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_light_5",
+      "collision_boxes": [
+        [
+          3.96967,
+          7,
+          0.96967,
+          12.03033,
+          13,
+          16
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_light_5a",
+      "category": "street_lights",
+      "kind": "light_head",
+      "placement": "horizontal",
+      "collision_mode": "bounding",
+      "light_level": 15,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_light_5a",
+      "collision_boxes": [
+        [
+          3.96967,
+          7,
+          0.96967,
+          12.03033,
+          13,
+          16
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_light_6",
+      "category": "street_lights",
+      "kind": "light_head",
+      "placement": "horizontal",
+      "collision_mode": "bounding",
+      "light_level": 15,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_light_6",
+      "collision_boxes": [
+        [
+          5,
+          6,
+          2,
+          11,
+          11,
+          16
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_light_7",
+      "category": "street_lights",
+      "kind": "light_head",
+      "placement": "horizontal",
+      "collision_mode": "bounding",
+      "light_level": 15,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_light_7",
+      "collision_boxes": [
+        [
+          4.968092,
+          6,
+          1.968092,
+          11.052441,
+          11,
+          16
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_light_8",
+      "category": "street_lights",
+      "kind": "light_head",
+      "placement": "horizontal",
+      "collision_mode": "bounding",
+      "light_level": 15,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_light_8",
+      "collision_boxes": [
+        [
+          0,
+          -6,
+          2,
+          15,
+          9,
+          14
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_light_8a",
+      "category": "street_lights",
+      "kind": "light_head",
+      "placement": "horizontal",
+      "collision_mode": "bounding",
+      "light_level": 15,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_light_8a",
+      "collision_boxes": [
+        [
+          -7,
+          0,
+          2,
+          15,
+          15,
+          14
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_light_8b",
+      "category": "street_lights",
+      "kind": "light_head",
+      "placement": "horizontal",
+      "collision_mode": "bounding",
+      "light_level": 15,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_light_8b",
+      "collision_boxes": [
+        [
+          0,
+          7,
+          2,
+          15,
+          22,
+          14
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_light_9",
+      "category": "street_lights",
+      "kind": "light_head",
+      "placement": "horizontal",
+      "collision_mode": "bounding",
+      "light_level": 15,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_light_9",
+      "collision_boxes": [
+        [
+          4.5,
+          7,
+          2.5,
+          11.5,
+          10,
+          16
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_post_1",
+      "category": "street_lights",
+      "kind": "side_branch",
+      "placement": "side_only",
+      "collision_mode": "bounding",
+      "light_level": 0,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_post_1",
+      "collision_boxes": [
+        [
+          7,
+          -9.061017,
+          0,
+          9,
+          9.038634,
+          24.660802
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_post_10",
+      "category": "street_lights",
+      "kind": "side_branch",
+      "placement": "side_only",
+      "collision_mode": "bounding",
+      "light_level": 0,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_post_10",
+      "collision_boxes": [
+        [
+          7,
+          -2.669671,
+          0,
+          9,
+          25.038634,
+          32.634315
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_post_12",
+      "category": "street_lights",
+      "kind": "side_branch",
+      "placement": "side_only",
+      "collision_mode": "bounding",
+      "light_level": 0,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_post_12",
+      "collision_boxes": [
+        [
+          7,
+          -1.993527,
+          0,
+          9,
+          18.038631,
+          25
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_post_13",
+      "category": "street_lights",
+      "kind": "side_branch",
+      "placement": "side_only",
+      "collision_mode": "bounding",
+      "light_level": 0,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_post_13",
+      "collision_boxes": [
+        [
+          7,
+          1.833307,
+          0,
+          9,
+          15,
+          24.660802
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_post_13a",
+      "category": "street_lights",
+      "kind": "side_branch",
+      "placement": "side_only",
+      "collision_mode": "bounding",
+      "light_level": 0,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_post_13a",
+      "collision_boxes": [
+        [
+          7,
+          -16,
+          0,
+          9,
+          9.000366,
+          25
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_post_1a",
+      "category": "street_lights",
+      "kind": "side_branch",
+      "placement": "side_only",
+      "collision_mode": "bounding",
+      "light_level": 0,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_post_1a",
+      "collision_boxes": [
+        [
+          7,
+          1.833307,
+          0,
+          9,
+          13.425478,
+          24.660802
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_post_1b",
+      "category": "street_lights",
+      "kind": "side_branch",
+      "placement": "side_only",
+      "collision_mode": "bounding",
+      "light_level": 0,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_post_1b",
+      "collision_boxes": [
+        [
+          7,
+          1.833307,
+          0,
+          9,
+          9.038634,
+          24.660802
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_post_1c",
+      "category": "street_lights",
+      "kind": "side_branch",
+      "placement": "side_only",
+      "collision_mode": "bounding",
+      "light_level": 0,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_post_1c",
+      "collision_boxes": [
+        [
+          5,
+          1.833307,
+          0,
+          11,
+          13.425478,
+          29.5
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_post_1d",
+      "category": "street_lights",
+      "kind": "side_branch",
+      "placement": "side_only",
+      "collision_mode": "bounding",
+      "light_level": 0,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_post_1d",
+      "collision_boxes": [
+        [
+          5,
+          1.833307,
+          0,
+          11,
+          13.425478,
+          25.5
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_post_1e",
+      "category": "street_lights",
+      "kind": "side_branch",
+      "placement": "side_only",
+      "collision_mode": "bounding",
+      "light_level": 0,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_post_1e",
+      "collision_boxes": [
+        [
+          4,
+          -3.462794,
+          0,
+          12,
+          14.890584,
+          30.204079
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_post_2",
+      "category": "street_lights",
+      "kind": "side_branch",
+      "placement": "side_only",
+      "collision_mode": "bounding",
+      "light_level": 0,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_post_2",
+      "collision_boxes": [
+        [
+          7,
+          -3.918016,
+          0,
+          9,
+          12.20134,
+          24.717716
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_post_2a",
+      "category": "street_lights",
+      "kind": "side_branch",
+      "placement": "side_only",
+      "collision_mode": "bounding",
+      "light_level": 0,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_post_2a",
+      "collision_boxes": [
+        [
+          6,
+          -10.84695,
+          0,
+          10,
+          18.706029,
+          24.057163
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_post_3",
+      "category": "street_lights",
+      "kind": "side_branch",
+      "placement": "side_only",
+      "collision_mode": "bounding",
+      "light_level": 0,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_post_3",
+      "collision_boxes": [
+        [
+          7,
+          -16,
+          0,
+          9,
+          9.000366,
+          25
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_post_3a",
+      "category": "street_lights",
+      "kind": "side_branch",
+      "placement": "side_only",
+      "collision_mode": "bounding",
+      "light_level": 0,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_post_3a",
+      "collision_boxes": [
+        [
+          6.75,
+          -16,
+          0,
+          9.25,
+          9.000366,
+          25.25
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_post_3b",
+      "category": "street_lights",
+      "kind": "side_branch",
+      "placement": "side_only",
+      "collision_mode": "bounding",
+      "light_level": 0,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_post_3b",
+      "collision_boxes": [
+        [
+          5,
+          -11,
+          0,
+          11,
+          9.000366,
+          24
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_post_3c",
+      "category": "street_lights",
+      "kind": "side_branch",
+      "placement": "side_only",
+      "collision_mode": "bounding",
+      "light_level": 0,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_post_3c",
+      "collision_boxes": [
+        [
+          5,
+          -11,
+          0,
+          11,
+          13.594741,
+          24
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_post_4",
+      "category": "street_lights",
+      "kind": "side_branch",
+      "placement": "side_only",
+      "collision_mode": "bounding",
+      "light_level": 0,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_post_4",
+      "collision_boxes": [
+        [
+          7,
+          -9.061017,
+          0,
+          9,
+          9.038634,
+          30.891852
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_post_4a",
+      "category": "street_lights",
+      "kind": "side_branch",
+      "placement": "side_only",
+      "collision_mode": "bounding",
+      "light_level": 0,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_post_4a",
+      "collision_boxes": [
+        [
+          7,
+          -15.962564,
+          0,
+          9,
+          9.038634,
+          31.386437
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_post_4b",
+      "category": "street_lights",
+      "kind": "side_branch",
+      "placement": "side_only",
+      "collision_mode": "bounding",
+      "light_level": 0,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_post_4b",
+      "collision_boxes": [
+        [
+          7,
+          7,
+          0,
+          9,
+          31.073832,
+          31.386437
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_post_4c",
+      "category": "street_lights",
+      "kind": "side_branch",
+      "placement": "side_only",
+      "collision_mode": "bounding",
+      "light_level": 0,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_post_4c",
+      "collision_boxes": [
+        [
+          7,
+          -15.962564,
+          0,
+          9,
+          9.038634,
+          23.386437
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_post_5",
+      "category": "street_lights",
+      "kind": "side_branch",
+      "placement": "side_only",
+      "collision_mode": "bounding",
+      "light_level": 0,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_post_5",
+      "collision_boxes": [
+        [
+          7,
+          -4.3,
+          0,
+          9,
+          9,
+          29
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_post_5a",
+      "category": "street_lights",
+      "kind": "side_branch",
+      "placement": "side_only",
+      "collision_mode": "bounding",
+      "light_level": 0,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_post_5a",
+      "collision_boxes": [
+        [
+          7,
+          -4.3,
+          0,
+          9,
+          12.179845,
+          23.392397
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_post_6",
+      "category": "street_lights",
+      "kind": "side_branch",
+      "placement": "side_only",
+      "collision_mode": "bounding",
+      "light_level": 0,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_post_6",
+      "collision_boxes": [
+        [
+          7,
+          -2.711692,
+          0,
+          9,
+          9.00405,
+          24.718204
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_post_7",
+      "category": "street_lights",
+      "kind": "side_branch",
+      "placement": "side_only",
+      "collision_mode": "bounding",
+      "light_level": 0,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_post_7",
+      "collision_boxes": [
+        [
+          5,
+          -15.962564,
+          0,
+          11,
+          9.038634,
+          31.386437
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_post_7a",
+      "category": "street_lights",
+      "kind": "side_branch",
+      "placement": "side_only",
+      "collision_mode": "bounding",
+      "light_level": 0,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_post_7a",
+      "collision_boxes": [
+        [
+          7,
+          -0.63315,
+          0,
+          9,
+          9,
+          30.155347
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_post_7b",
+      "category": "street_lights",
+      "kind": "side_branch",
+      "placement": "side_only",
+      "collision_mode": "bounding",
+      "light_level": 0,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_post_7b",
+      "collision_boxes": [
+        [
+          7,
+          -2.711692,
+          0,
+          9,
+          9.00405,
+          24.718204
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_post_8",
+      "category": "street_lights",
+      "kind": "side_branch",
+      "placement": "side_only",
+      "collision_mode": "bounding",
+      "light_level": 0,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_post_8",
+      "collision_boxes": [
+        [
+          4,
+          -12.08181,
+          0,
+          12,
+          9,
+          22.992378
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_post_9",
+      "category": "street_lights",
+      "kind": "side_branch",
+      "placement": "side_only",
+      "collision_mode": "bounding",
+      "light_level": 0,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_post_9",
+      "collision_boxes": [
+        [
+          7,
+          -4.3,
+          0,
+          9,
+          9,
+          29
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_post_9a",
+      "category": "street_lights",
+      "kind": "side_branch",
+      "placement": "side_only",
+      "collision_mode": "bounding",
+      "light_level": 0,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_post_9a",
+      "collision_boxes": [
+        [
+          7,
+          1.833307,
+          0,
+          9,
+          9.038634,
+          24.660802
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_post_9b",
+      "category": "street_lights",
+      "kind": "side_branch",
+      "placement": "side_only",
+      "collision_mode": "bounding",
+      "light_level": 0,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_post_9b",
+      "collision_boxes": [
+        [
+          7,
+          -16,
+          0,
+          9,
+          9.000366,
+          25
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_pole_1",
+      "category": "street_lights",
+      "kind": "street_pole",
+      "placement": "horizontal",
+      "collision_mode": "detailed",
+      "light_level": 0,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_pole_1",
+      "collision_boxes": [
+        [
+          6.9,
+          0,
+          6.9,
+          9.1,
+          16,
+          9.1
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_pole_1a",
+      "category": "street_lights",
+      "kind": "street_pole",
+      "placement": "horizontal",
+      "collision_mode": "detailed",
+      "light_level": 0,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_pole_1a",
+      "collision_boxes": [
+        [
+          6.9,
+          0,
+          6.9,
+          9.1,
+          8,
+          9.1
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_pole_1b",
+      "category": "street_lights",
+      "kind": "street_pole",
+      "placement": "horizontal",
+      "collision_mode": "detailed",
+      "light_level": 0,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_pole_1b",
+      "collision_boxes": [
+        [
+          6.9,
+          0,
+          6.9,
+          9.1,
+          1,
+          9.1
+        ],
+        [
+          7.5,
+          1,
+          7.5,
+          8.5,
+          2,
+          8.5
+        ],
+        [
+          6.5,
+          2,
+          6.5,
+          9.5,
+          5,
+          9.5
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_pole_1c",
+      "category": "street_lights",
+      "kind": "street_pole",
+      "placement": "horizontal",
+      "collision_mode": "detailed",
+      "light_level": 0,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_pole_1c",
+      "collision_boxes": [
+        [
+          7,
+          7,
+          0,
+          9,
+          9,
+          16
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_pole_1d",
+      "category": "street_lights",
+      "kind": "street_pole",
+      "placement": "horizontal",
+      "collision_mode": "detailed",
+      "light_level": 0,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_pole_1d",
+      "collision_boxes": [
+        [
+          6.9,
+          0,
+          6.9,
+          9.1,
+          6,
+          9.1
+        ],
+        [
+          7.5,
+          6,
+          7.5,
+          8.5,
+          7,
+          8.5
+        ],
+        [
+          6.5,
+          7,
+          6.5,
+          9.5,
+          10,
+          9.5
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_pole_2",
+      "category": "street_lights",
+      "kind": "street_pole",
+      "placement": "horizontal",
+      "collision_mode": "detailed",
+      "light_level": 0,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_pole_2",
+      "collision_boxes": [
+        [
+          6.9,
+          0,
+          6.9,
+          9.1,
+          16,
+          9.1
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_pole_2a",
+      "category": "street_lights",
+      "kind": "street_pole",
+      "placement": "horizontal",
+      "collision_mode": "detailed",
+      "light_level": 0,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_pole_2a",
+      "collision_boxes": [
+        [
+          6.9,
+          0,
+          6.9,
+          9.1,
+          8,
+          9.1
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_pole_2b",
+      "category": "street_lights",
+      "kind": "street_pole",
+      "placement": "horizontal",
+      "collision_mode": "detailed",
+      "light_level": 0,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_pole_2b",
+      "collision_boxes": [
+        [
+          6.9,
+          0,
+          6.9,
+          9.1,
+          1,
+          9.1
+        ],
+        [
+          7.5,
+          1,
+          7.5,
+          8.5,
+          2,
+          8.5
+        ],
+        [
+          6.5,
+          2,
+          6.5,
+          9.5,
+          5,
+          9.5
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_pole_2c",
+      "category": "street_lights",
+      "kind": "street_pole",
+      "placement": "horizontal",
+      "collision_mode": "detailed",
+      "light_level": 0,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_pole_2c",
+      "collision_boxes": [
+        [
+          7,
+          7,
+          0,
+          9,
+          9,
+          16
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_pole_2d",
+      "category": "street_lights",
+      "kind": "street_pole",
+      "placement": "horizontal",
+      "collision_mode": "detailed",
+      "light_level": 0,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_pole_2d",
+      "collision_boxes": [
+        [
+          6.9,
+          0,
+          6.9,
+          9.1,
+          6,
+          9.1
+        ],
+        [
+          7.5,
+          6,
+          7.5,
+          8.5,
+          7,
+          8.5
+        ],
+        [
+          6.5,
+          7,
+          6.5,
+          9.5,
+          10,
+          9.5
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_pole_3",
+      "category": "street_lights",
+      "kind": "street_pole",
+      "placement": "horizontal",
+      "collision_mode": "detailed",
+      "light_level": 0,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_pole_3",
+      "collision_boxes": [
+        [
+          6.9,
+          0,
+          6.9,
+          9.1,
+          16,
+          9.1
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_pole_3a",
+      "category": "street_lights",
+      "kind": "street_pole",
+      "placement": "horizontal",
+      "collision_mode": "detailed",
+      "light_level": 0,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_pole_3a",
+      "collision_boxes": [
+        [
+          6.9,
+          0,
+          6.9,
+          9.1,
+          8,
+          9.1
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_pole_3b",
+      "category": "street_lights",
+      "kind": "street_pole",
+      "placement": "horizontal",
+      "collision_mode": "detailed",
+      "light_level": 0,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_pole_3b",
+      "collision_boxes": [
+        [
+          6.9,
+          0,
+          6.9,
+          9.1,
+          6,
+          9.1
+        ],
+        [
+          7.5,
+          6,
+          7.5,
+          8.5,
+          7,
+          8.5
+        ],
+        [
+          6,
+          7,
+          6,
+          10,
+          8,
+          10
+        ],
+        [
+          5,
+          8,
+          5,
+          11,
+          14,
+          11
+        ],
+        [
+          11,
+          9,
+          6,
+          12,
+          13,
+          10
+        ],
+        [
+          6,
+          9,
+          4,
+          10,
+          13,
+          5
+        ],
+        [
+          6,
+          9,
+          11,
+          10,
+          13,
+          12
+        ],
+        [
+          6,
+          14,
+          6,
+          10,
+          15,
+          10
+        ],
+        [
+          4,
+          9,
+          6,
+          5,
+          13,
+          10
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_pole_3c",
+      "category": "street_lights",
+      "kind": "street_pole",
+      "placement": "horizontal",
+      "collision_mode": "detailed",
+      "light_level": 0,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_pole_3c",
+      "collision_boxes": [
+        [
+          6.9,
+          0,
+          6.9,
+          9.1,
+          6,
+          9.1
+        ],
+        [
+          7.5,
+          6,
+          7.5,
+          8.5,
+          7,
+          8.5
+        ],
+        [
+          6,
+          7,
+          6,
+          10,
+          8,
+          10
+        ],
+        [
+          5,
+          8,
+          5,
+          11,
+          14,
+          11
+        ],
+        [
+          11,
+          9,
+          6,
+          12,
+          13,
+          10
+        ],
+        [
+          6,
+          9,
+          4,
+          10,
+          13,
+          5
+        ],
+        [
+          6,
+          9,
+          11,
+          10,
+          13,
+          12
+        ],
+        [
+          6,
+          14,
+          6,
+          10,
+          15,
+          10
+        ],
+        [
+          4,
+          9,
+          6,
+          5,
+          13,
+          10
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_pole_3d",
+      "category": "street_lights",
+      "kind": "street_pole",
+      "placement": "horizontal",
+      "collision_mode": "detailed",
+      "light_level": 0,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_pole_3d",
+      "collision_boxes": [
+        [
+          7,
+          7,
+          0,
+          9,
+          9,
+          16
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_pole_4",
+      "category": "street_lights",
+      "kind": "street_pole",
+      "placement": "horizontal",
+      "collision_mode": "detailed",
+      "light_level": 0,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_pole_4",
+      "collision_boxes": [
+        [
+          6.9,
+          0,
+          6.9,
+          9.1,
+          16,
+          9.1
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_pole_4a",
+      "category": "street_lights",
+      "kind": "street_pole",
+      "placement": "horizontal",
+      "collision_mode": "detailed",
+      "light_level": 0,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_pole_4a",
+      "collision_boxes": [
+        [
+          5.9,
+          2,
+          5.9,
+          10.1,
+          14,
+          10.1
+        ],
+        [
+          5,
+          0,
+          5,
+          11,
+          2,
+          11
+        ],
+        [
+          5,
+          14,
+          5,
+          11,
+          16,
+          11
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_pole_5",
+      "category": "street_lights",
+      "kind": "street_pole",
+      "placement": "horizontal",
+      "collision_mode": "detailed",
+      "light_level": 0,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_pole_5",
+      "collision_boxes": [
+        [
+          6,
+          0,
+          6,
+          10,
+          1,
+          10
+        ],
+        [
+          5,
+          1,
+          5,
+          11,
+          7,
+          11
+        ],
+        [
+          11,
+          2,
+          6,
+          12,
+          6,
+          10
+        ],
+        [
+          6,
+          2,
+          4,
+          10,
+          6,
+          5
+        ],
+        [
+          6,
+          2,
+          11,
+          10,
+          6,
+          12
+        ],
+        [
+          6,
+          7,
+          6,
+          10,
+          8,
+          10
+        ],
+        [
+          4,
+          2,
+          6,
+          5,
+          6,
+          10
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_post_11",
+      "category": "street_lights",
+      "kind": "top_assembly",
+      "placement": "top_only",
+      "collision_mode": "bounding",
+      "light_level": 0,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_post_11",
+      "collision_boxes": [
+        [
+          6,
+          0,
+          -16,
+          10,
+          28,
+          22.214513
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_post_14",
+      "category": "street_lights",
+      "kind": "top_assembly",
+      "placement": "top_only",
+      "collision_mode": "bounding",
+      "light_level": 0,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_post_14",
+      "collision_boxes": [
+        [
+          6.9,
+          0,
+          -16,
+          9.1,
+          25,
+          14.944234
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_street_post_14a",
+      "category": "street_lights",
+      "kind": "top_assembly",
+      "placement": "top_only",
+      "collision_mode": "bounding",
+      "light_level": 0,
+      "source_folder": "路灯杆与支架",
+      "source_stem": "jinzai_street_post_14a",
+      "collision_boxes": [
+        [
+          6.9,
+          0,
+          -16,
+          9.1,
+          25,
+          32
+        ]
+      ]
+    },
+    {
+      "id": "signpost_1",
+      "category": "road_signs",
+      "kind": "decoration",
+      "placement": "horizontal",
+      "collision_mode": "bounding",
+      "light_level": 0,
+      "source_folder": "路牌",
+      "source_stem": "signpost_1",
+      "collision_boxes": [
+        [
+          -10,
+          0,
+          5.979899,
+          26,
+          16,
+          10
+        ]
+      ]
+    },
+    {
+      "id": "signpost_10",
+      "category": "road_signs",
+      "kind": "decoration",
+      "placement": "horizontal",
+      "collision_mode": "bounding",
+      "light_level": 0,
+      "source_folder": "路牌",
+      "source_stem": "signpost_10",
+      "collision_boxes": [
+        [
+          -9,
+          0,
+          6,
+          25,
+          17,
+          10
+        ]
+      ]
+    },
+    {
+      "id": "signpost_11",
+      "category": "road_signs",
+      "kind": "decoration",
+      "placement": "horizontal",
+      "collision_mode": "bounding",
+      "light_level": 0,
+      "source_folder": "路牌",
+      "source_stem": "signpost_11",
+      "collision_boxes": [
+        [
+          -9,
+          0,
+          6,
+          25,
+          17,
+          10
+        ]
+      ]
+    },
+    {
+      "id": "signpost_12",
+      "category": "road_signs",
+      "kind": "decoration",
+      "placement": "horizontal",
+      "collision_mode": "bounding",
+      "light_level": 0,
+      "source_folder": "路牌",
+      "source_stem": "signpost_12",
+      "collision_boxes": [
+        [
+          -5,
+          0,
+          4,
+          21,
+          16,
+          12
+        ]
+      ]
+    },
+    {
+      "id": "signpost_12a",
+      "category": "road_signs",
+      "kind": "decoration",
+      "placement": "horizontal",
+      "collision_mode": "bounding",
+      "light_level": 0,
+      "source_folder": "路牌",
+      "source_stem": "signpost_12a",
+      "collision_boxes": [
+        [
+          -4,
+          0,
+          4,
+          20,
+          32,
+          12
+        ]
+      ]
+    },
+    {
+      "id": "signpost_12b",
+      "category": "road_signs",
+      "kind": "decoration",
+      "placement": "horizontal",
+      "collision_mode": "bounding",
+      "light_level": 0,
+      "source_folder": "路牌",
+      "source_stem": "signpost_12b",
+      "collision_boxes": [
+        [
+          -4,
+          0,
+          4,
+          20,
+          12,
+          12
+        ]
+      ]
+    },
+    {
+      "id": "signpost_13",
+      "category": "road_signs",
+      "kind": "decoration",
+      "placement": "horizontal",
+      "collision_mode": "bounding",
+      "light_level": 0,
+      "source_folder": "路牌",
+      "source_stem": "signpost_13",
+      "collision_boxes": [
+        [
+          -10,
+          0,
+          7,
+          26,
+          15,
+          9
+        ]
+      ]
+    },
+    {
+      "id": "signpost_14",
+      "category": "road_signs",
+      "kind": "decoration",
+      "placement": "horizontal",
+      "collision_mode": "bounding",
+      "light_level": 0,
+      "source_folder": "路牌",
+      "source_stem": "signpost_14",
+      "collision_boxes": [
+        [
+          -10,
+          0,
+          7,
+          26,
+          15,
+          9
+        ]
+      ]
+    },
+    {
+      "id": "signpost_15",
+      "category": "road_signs",
+      "kind": "decoration",
+      "placement": "horizontal",
+      "collision_mode": "bounding",
+      "light_level": 0,
+      "source_folder": "路牌",
+      "source_stem": "signpost_15",
+      "collision_boxes": [
+        [
+          -10,
+          0,
+          7,
+          26,
+          15,
+          9
+        ]
+      ]
+    },
+    {
+      "id": "signpost_16",
+      "category": "road_signs",
+      "kind": "decoration",
+      "placement": "horizontal",
+      "collision_mode": "bounding",
+      "light_level": 0,
+      "source_folder": "路牌",
+      "source_stem": "signpost_16",
+      "collision_boxes": [
+        [
+          -11,
+          0,
+          6,
+          27,
+          20,
+          10
+        ]
+      ]
+    },
+    {
+      "id": "signpost_17",
+      "category": "road_signs",
+      "kind": "decoration",
+      "placement": "horizontal",
+      "collision_mode": "bounding",
+      "light_level": 0,
+      "source_folder": "路牌",
+      "source_stem": "signpost_17",
+      "collision_boxes": [
+        [
+          -11,
+          0,
+          6,
+          27,
+          20,
+          10
+        ]
+      ]
+    },
+    {
+      "id": "signpost_18",
+      "category": "road_signs",
+      "kind": "decoration",
+      "placement": "horizontal",
+      "collision_mode": "bounding",
+      "light_level": 0,
+      "source_folder": "路牌",
+      "source_stem": "signpost_18",
+      "collision_boxes": [
+        [
+          -7,
+          0,
+          7,
+          29,
+          15,
+          9
+        ]
+      ]
+    },
+    {
+      "id": "signpost_19",
+      "category": "road_signs",
+      "kind": "decoration",
+      "placement": "horizontal",
+      "collision_mode": "bounding",
+      "light_level": 0,
+      "source_folder": "路牌",
+      "source_stem": "signpost_19",
+      "collision_boxes": [
+        [
+          -7,
+          0,
+          7,
+          29,
+          15,
+          9
+        ]
+      ]
+    },
+    {
+      "id": "signpost_2",
+      "category": "road_signs",
+      "kind": "decoration",
+      "placement": "horizontal",
+      "collision_mode": "bounding",
+      "light_level": 0,
+      "source_folder": "路牌",
+      "source_stem": "signpost_2",
+      "collision_boxes": [
+        [
+          -10,
+          0,
+          5.979899,
+          26,
+          16,
+          10
+        ]
+      ]
+    },
+    {
+      "id": "signpost_20",
+      "category": "road_signs",
+      "kind": "decoration",
+      "placement": "horizontal",
+      "collision_mode": "bounding",
+      "light_level": 0,
+      "source_folder": "路牌",
+      "source_stem": "signpost_20",
+      "collision_boxes": [
+        [
+          -7,
+          0,
+          7,
+          29,
+          15,
+          9
+        ]
+      ]
+    },
+    {
+      "id": "signpost_3",
+      "category": "road_signs",
+      "kind": "decoration",
+      "placement": "horizontal",
+      "collision_mode": "bounding",
+      "light_level": 0,
+      "source_folder": "路牌",
+      "source_stem": "signpost_3",
+      "collision_boxes": [
+        [
+          -10,
+          0,
+          5.979899,
+          26,
+          16,
+          10
+        ]
+      ]
+    },
+    {
+      "id": "signpost_4",
+      "category": "road_signs",
+      "kind": "decoration",
+      "placement": "horizontal",
+      "collision_mode": "bounding",
+      "light_level": 0,
+      "source_folder": "路牌",
+      "source_stem": "signpost_4",
+      "collision_boxes": [
+        [
+          -9,
+          0,
+          6,
+          25,
+          16,
+          10
+        ]
+      ]
+    },
+    {
+      "id": "signpost_5",
+      "category": "road_signs",
+      "kind": "decoration",
+      "placement": "horizontal",
+      "collision_mode": "bounding",
+      "light_level": 0,
+      "source_folder": "路牌",
+      "source_stem": "signpost_5",
+      "collision_boxes": [
+        [
+          -11,
+          3,
+          5,
+          32,
+          16,
+          11
+        ]
+      ]
+    },
+    {
+      "id": "signpost_6",
+      "category": "road_signs",
+      "kind": "decoration",
+      "placement": "horizontal",
+      "collision_mode": "bounding",
+      "light_level": 0,
+      "source_folder": "路牌",
+      "source_stem": "signpost_6",
+      "collision_boxes": [
+        [
+          -5,
+          0,
+          6,
+          21,
+          17,
+          10
+        ]
+      ]
+    },
+    {
+      "id": "signpost_7",
+      "category": "road_signs",
+      "kind": "decoration",
+      "placement": "horizontal",
+      "collision_mode": "bounding",
+      "light_level": 0,
+      "source_folder": "路牌",
+      "source_stem": "signpost_7",
+      "collision_boxes": [
+        [
+          -5,
+          0,
+          6,
+          21,
+          17,
+          10
+        ]
+      ]
+    },
+    {
+      "id": "signpost_8",
+      "category": "road_signs",
+      "kind": "decoration",
+      "placement": "horizontal",
+      "collision_mode": "bounding",
+      "light_level": 0,
+      "source_folder": "路牌",
+      "source_stem": "signpost_8",
+      "collision_boxes": [
+        [
+          -10,
+          0,
+          6,
+          26,
+          19,
+          10
+        ]
+      ]
+    },
+    {
+      "id": "signpost_9",
+      "category": "road_signs",
+      "kind": "decoration",
+      "placement": "horizontal",
+      "collision_mode": "bounding",
+      "light_level": 0,
+      "source_folder": "路牌",
+      "source_stem": "signpost_9",
+      "collision_boxes": [
+        [
+          -10,
+          0,
+          6,
+          26,
+          25.6,
+          10
+        ]
+      ]
+    },
+    {
+      "id": "signpost_affiliated_1",
+      "category": "road_signs",
+      "kind": "decoration",
+      "placement": "horizontal",
+      "collision_mode": "bounding",
+      "light_level": 0,
+      "source_folder": "路牌",
+      "source_stem": "signpost_affiliated_1",
+      "collision_boxes": [
+        [
+          -1,
+          0,
+          5.979899,
+          17,
+          21,
+          10
+        ]
+      ]
+    },
+    {
+      "id": "signpost_pole_1",
+      "category": "road_signs",
+      "kind": "sign_pole",
+      "placement": "horizontal",
+      "collision_mode": "detailed",
+      "light_level": 0,
+      "source_folder": "路牌",
+      "source_stem": "signpost_pole_1",
+      "collision_boxes": [
+        [
+          7,
+          0,
+          7,
+          9,
+          16,
+          9
+        ],
+        [
+          7,
+          0,
+          9,
+          9,
+          16,
+          10
+        ],
+        [
+          7,
+          0,
+          6,
+          9,
+          16,
+          7
+        ],
+        [
+          6,
+          0,
+          7,
+          7,
+          16,
+          9
+        ],
+        [
+          9,
+          0,
+          7,
+          10,
+          16,
+          9
+        ],
+        [
+          7,
+          0,
+          7,
+          9,
+          16,
+          9
+        ],
+        [
+          6.007969,
+          0,
+          8.302082,
+          7.210051,
+          16,
+          9.504163
+        ],
+        [
+          6.502944,
+          0,
+          8.797056,
+          7.705025,
+          16,
+          9.999138
+        ],
+        [
+          6.474874,
+          0,
+          6,
+          7.676955,
+          16,
+          7.202082
+        ],
+        [
+          5.979899,
+          0,
+          6.494975,
+          7.181981,
+          16,
+          7.697056
+        ],
+        [
+          8.302944,
+          0,
+          5.979899,
+          9.505025,
+          16,
+          7.181981
+        ],
+        [
+          8.797918,
+          0,
+          6.474874,
+          10,
+          16,
+          7.676955
+        ],
+        [
+          8.818019,
+          0,
+          8.302944,
+          10.020101,
+          16,
+          9.505025
+        ],
+        [
+          8.323045,
+          0,
+          8.797918,
+          9.525126,
+          16,
+          10
+        ]
+      ]
+    },
+    {
+      "id": "signpost_pole_2",
+      "category": "road_signs",
+      "kind": "sign_pole",
+      "placement": "horizontal",
+      "collision_mode": "detailed",
+      "light_level": 0,
+      "source_folder": "路牌",
+      "source_stem": "signpost_pole_2",
+      "collision_boxes": [
+        [
+          7,
+          0,
+          9,
+          9,
+          16,
+          10
+        ],
+        [
+          7,
+          0,
+          6,
+          9,
+          16,
+          7
+        ],
+        [
+          6,
+          0,
+          7,
+          7,
+          16,
+          9
+        ],
+        [
+          9,
+          0,
+          7,
+          10,
+          16,
+          9
+        ],
+        [
+          6.007969,
+          0,
+          8.302082,
+          7.210051,
+          16,
+          9.504163
+        ],
+        [
+          6.502944,
+          0,
+          8.797056,
+          7.705025,
+          16,
+          9.999138
+        ],
+        [
+          6.474874,
+          0,
+          6,
+          7.676955,
+          16,
+          7.202082
+        ],
+        [
+          5.979899,
+          0,
+          6.494975,
+          7.181981,
+          16,
+          7.697056
+        ],
+        [
+          8.302944,
+          0,
+          5.979899,
+          9.505025,
+          16,
+          7.181981
+        ],
+        [
+          8.797918,
+          0,
+          6.474874,
+          10,
+          16,
+          7.676955
+        ],
+        [
+          8.818019,
+          0,
+          8.302944,
+          10.020101,
+          16,
+          9.505025
+        ],
+        [
+          8.323045,
+          0,
+          8.797918,
+          9.525126,
+          16,
+          10
+        ],
+        [
+          7,
+          0,
+          7,
+          9,
+          16,
+          9
+        ]
+      ]
+    },
+    {
+      "id": "signpost_pole_3",
+      "category": "road_signs",
+      "kind": "sign_pole",
+      "placement": "horizontal",
+      "collision_mode": "detailed",
+      "light_level": 0,
+      "source_folder": "路牌",
+      "source_stem": "signpost_pole_3",
+      "collision_boxes": [
+        [
+          7,
+          0,
+          9,
+          9,
+          16,
+          10
+        ],
+        [
+          7,
+          0,
+          6,
+          9,
+          16,
+          7
+        ],
+        [
+          6,
+          0,
+          7,
+          7,
+          16,
+          9
+        ],
+        [
+          9,
+          0,
+          7,
+          10,
+          16,
+          9
+        ],
+        [
+          6.007969,
+          0,
+          8.302082,
+          7.210051,
+          16,
+          9.504163
+        ],
+        [
+          6.502944,
+          0,
+          8.797056,
+          7.705025,
+          16,
+          9.999138
+        ],
+        [
+          6.474874,
+          0,
+          6,
+          7.676955,
+          16,
+          7.202082
+        ],
+        [
+          5.979899,
+          0,
+          6.494975,
+          7.181981,
+          16,
+          7.697056
+        ],
+        [
+          8.302944,
+          0,
+          5.979899,
+          9.505025,
+          16,
+          7.181981
+        ],
+        [
+          8.797918,
+          0,
+          6.474874,
+          10,
+          16,
+          7.676955
+        ],
+        [
+          8.818019,
+          0,
+          8.302944,
+          10.020101,
+          16,
+          9.505025
+        ],
+        [
+          8.323045,
+          0,
+          8.797918,
+          9.525126,
+          16,
+          10
+        ],
+        [
+          7,
+          0,
+          7,
+          9,
+          16,
+          9
+        ]
+      ]
+    },
+    {
+      "id": "signpost_pole_4",
+      "category": "road_signs",
+      "kind": "sign_pole",
+      "placement": "horizontal",
+      "collision_mode": "detailed",
+      "light_level": 0,
+      "source_folder": "路牌",
+      "source_stem": "signpost_pole_4",
+      "collision_boxes": [
+        [
+          7,
+          0,
+          7,
+          9,
+          16,
+          9
+        ]
+      ]
+    },
+    {
+      "id": "signpost_pole_5",
+      "category": "road_signs",
+      "kind": "sign_pole",
+      "placement": "horizontal",
+      "collision_mode": "detailed",
+      "light_level": 0,
+      "source_folder": "路牌",
+      "source_stem": "signpost_pole_5",
+      "collision_boxes": [
+        [
+          7,
+          0,
+          7,
+          9,
+          15,
+          9
+        ],
+        [
+          7.348814,
+          9.343583,
+          7,
+          8.655377,
+          10.650146,
+          9
+        ],
+        [
+          7.731497,
+          10.267462,
+          7,
+          9.03806,
+          11.574025,
+          9
+        ],
+        [
+          8.114181,
+          11.191342,
+          7,
+          9.420744,
+          12.497905,
+          9
+        ],
+        [
+          8.496864,
+          12.115221,
+          7,
+          9.803427,
+          13.421784,
+          9
+        ],
+        [
+          8.272693,
+          8.960899,
+          7,
+          9.579256,
+          10.267462,
+          9
+        ],
+        [
+          8.655377,
+          9.884779,
+          7,
+          9.96194,
+          11.191342,
+          9
+        ],
+        [
+          9.03806,
+          10.808658,
+          7,
+          10.344623,
+          12.115221,
+          9
+        ],
+        [
+          9.420744,
+          11.732538,
+          7,
+          10.727307,
+          13.039101,
+          9
+        ],
+        [
+          6.496864,
+          8.960898,
+          7,
+          7.803427,
+          10.26746,
+          9
+        ],
+        [
+          6.11418,
+          9.884777,
+          7,
+          7.420743,
+          11.19134,
+          9
+        ],
+        [
+          5.731497,
+          10.808657,
+          7,
+          7.03806,
+          12.11522,
+          9
+        ],
+        [
+          5.348814,
+          11.732536,
+          7,
+          6.655377,
+          13.039099,
+          9
+        ],
+        [
+          7.420743,
+          9.343581,
+          7,
+          8.727306,
+          10.650144,
+          9
+        ],
+        [
+          7.03806,
+          10.26746,
+          7,
+          8.344623,
+          11.574023,
+          9
+        ],
+        [
+          6.655377,
+          11.19134,
+          7,
+          7.96194,
+          12.497903,
+          9
+        ],
+        [
+          6.272693,
+          12.11522,
+          7,
+          7.579256,
+          13.421782,
+          9
+        ],
+        [
+          7.03806,
+          8.960898,
+          6.458804,
+          9.03806,
+          10.26746,
+          7.765367
+        ],
+        [
+          7.03806,
+          9.343581,
+          7.382683,
+          9.03806,
+          10.650144,
+          8.689246
+        ],
+        [
+          7.03806,
+          9.884777,
+          6.07612,
+          9.03806,
+          11.19134,
+          7.382683
+        ],
+        [
+          7.03806,
+          10.26746,
+          7,
+          9.03806,
+          11.574023,
+          8.306563
+        ],
+        [
+          7.03806,
+          10.808657,
+          5.693437,
+          9.03806,
+          12.11522,
+          7
+        ],
+        [
+          7.03806,
+          11.19134,
+          6.617317,
+          9.03806,
+          12.497903,
+          7.92388
+        ],
+        [
+          7.03806,
+          11.732536,
+          5.310754,
+          9.03806,
+          13.039099,
+          6.617317
+        ],
+        [
+          7.03806,
+          12.11522,
+          6.234633,
+          9.03806,
+          13.421782,
+          7.541196
+        ],
+        [
+          7.03806,
+          9.343581,
+          7.310754,
+          9.03806,
+          10.650144,
+          8.617317
+        ],
+        [
+          7.03806,
+          8.960898,
+          8.234633,
+          9.03806,
+          10.26746,
+          9.541196
+        ],
+        [
+          7.03806,
+          10.26746,
+          7.693437,
+          9.03806,
+          11.574023,
+          9
+        ],
+        [
+          7.03806,
+          9.884777,
+          8.617317,
+          9.03806,
+          11.19134,
+          9.92388
+        ],
+        [
+          7.03806,
+          11.19134,
+          8.07612,
+          9.03806,
+          12.497903,
+          9.382683
+        ],
+        [
+          7.03806,
+          10.808657,
+          9,
+          9.03806,
+          12.11522,
+          10.306563
+        ],
+        [
+          7.03806,
+          12.11522,
+          8.458804,
+          9.03806,
+          13.421782,
+          9.765367
+        ],
+        [
+          7.03806,
+          11.732536,
+          9.382683,
+          9.03806,
+          13.039099,
+          10.689246
+        ],
+        [
+          6,
+          12,
+          5,
+          10,
+          14,
+          11
+        ],
+        [
+          10,
+          12,
+          6,
+          11,
+          14,
+          10
+        ],
+        [
+          5,
+          12,
+          6,
+          6,
+          14,
+          10
+        ],
+        [
+          5,
+          15,
+          4,
+          11,
+          17,
+          12
+        ],
+        [
+          4,
+          15,
+          5,
+          5,
+          17,
+          11
+        ],
+        [
+          11,
+          15,
+          5,
+          12,
+          17,
+          11
+        ]
+      ]
+    },
+    {
+      "id": "signpost_pole_6",
+      "category": "road_signs",
+      "kind": "sign_pole",
+      "placement": "horizontal",
+      "collision_mode": "detailed",
+      "light_level": 0,
+      "source_folder": "路牌",
+      "source_stem": "signpost_pole_6",
+      "collision_boxes": [
+        [
+          7,
+          0,
+          7.5,
+          9,
+          16,
+          8.5
+        ],
+        [
+          6.75,
+          0,
+          7,
+          9.25,
+          16,
+          7.5
+        ],
+        [
+          6.75,
+          0,
+          8.5,
+          9.25,
+          16,
+          9
+        ]
+      ]
+    },
+    {
+      "id": "signpost_pole_7",
+      "category": "road_signs",
+      "kind": "sign_pole",
+      "placement": "horizontal",
+      "collision_mode": "detailed",
+      "light_level": 0,
+      "source_folder": "路牌",
+      "source_stem": "signpost_pole_7",
+      "collision_boxes": [
+        [
+          7,
+          0,
+          7.5,
+          9,
+          8,
+          8.5
+        ],
+        [
+          6.75,
+          0,
+          7,
+          9.25,
+          8,
+          7.5
+        ],
+        [
+          6.75,
+          0,
+          8.5,
+          9.25,
+          8,
+          9
+        ],
+        [
+          3,
+          14,
+          7,
+          13,
+          16,
+          9
+        ],
+        [
+          8,
+          10.292893,
+          7,
+          9.414214,
+          11.707107,
+          9
+        ],
+        [
+          7.292893,
+          11,
+          7,
+          8.707107,
+          12.414214,
+          9
+        ],
+        [
+          8.707107,
+          11,
+          7,
+          10.12132,
+          12.414214,
+          9
+        ],
+        [
+          8,
+          11.707107,
+          7,
+          9.414214,
+          13.12132,
+          9
+        ],
+        [
+          9.414214,
+          11.707107,
+          7,
+          10.828427,
+          13.12132,
+          9
+        ],
+        [
+          8.707107,
+          12.414214,
+          7,
+          10.12132,
+          13.828427,
+          9
+        ],
+        [
+          10.12132,
+          12.414214,
+          7,
+          11.535534,
+          13.828427,
+          9
+        ],
+        [
+          9.414214,
+          13.12132,
+          7,
+          10.828427,
+          14.535534,
+          9
+        ],
+        [
+          10.828427,
+          13.12132,
+          7,
+          12.242641,
+          14.535534,
+          9
+        ],
+        [
+          10.12132,
+          13.828427,
+          7,
+          11.535534,
+          15.242641,
+          9
+        ],
+        [
+          11.535534,
+          13.828427,
+          7,
+          12.949747,
+          15.242641,
+          9
+        ],
+        [
+          10.828427,
+          14.535534,
+          7,
+          12.242641,
+          15.949747,
+          9
+        ],
+        [
+          6.585786,
+          10.292893,
+          7,
+          8,
+          11.707107,
+          9
+        ],
+        [
+          5.87868,
+          11,
+          7,
+          7.292893,
+          12.414214,
+          9
+        ],
+        [
+          5.171573,
+          11.707107,
+          7,
+          6.585786,
+          13.12132,
+          9
+        ],
+        [
+          4.464466,
+          12.414214,
+          7,
+          5.87868,
+          13.828427,
+          9
+        ],
+        [
+          3.757359,
+          13.12132,
+          7,
+          5.171573,
+          14.535534,
+          9
+        ],
+        [
+          3.050253,
+          13.828427,
+          7,
+          4.464466,
+          15.242641,
+          9
+        ],
+        [
+          7.292893,
+          11,
+          7,
+          8.707107,
+          12.414214,
+          9
+        ],
+        [
+          6.585786,
+          11.707107,
+          7,
+          8,
+          13.12132,
+          9
+        ],
+        [
+          5.87868,
+          12.414214,
+          7,
+          7.292893,
+          13.828427,
+          9
+        ],
+        [
+          5.171573,
+          13.12132,
+          7,
+          6.585786,
+          14.535534,
+          9
+        ],
+        [
+          4.464466,
+          13.828427,
+          7,
+          5.87868,
+          15.242641,
+          9
+        ],
+        [
+          3.757359,
+          14.535534,
+          7,
+          5.171573,
+          15.949747,
+          9
+        ],
+        [
+          7,
+          10,
+          7,
+          9,
+          12,
+          9
+        ],
+        [
+          7,
+          8,
+          7.15,
+          9,
+          10,
+          8.9
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_bus_stop_1",
+      "category": "bus_stops",
+      "kind": "decoration",
+      "placement": "horizontal",
+      "collision_mode": "bounding",
+      "light_level": 0,
+      "source_folder": "公交站",
+      "source_stem": "jinzai_bus_stop_1",
+      "collision_boxes": [
+        [
+          -4,
+          -9,
+          6,
+          26,
+          30,
+          10
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_bus_stop_2",
+      "category": "bus_stops",
+      "kind": "decoration",
+      "placement": "horizontal",
+      "collision_mode": "bounding",
+      "light_level": 0,
+      "source_folder": "公交站",
+      "source_stem": "jinzai_bus_stop_2",
+      "collision_boxes": [
+        [
+          0,
+          -16,
+          6,
+          16,
+          32,
+          10
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_bus_stop_3",
+      "category": "bus_stops",
+      "kind": "decoration",
+      "placement": "horizontal",
+      "collision_mode": "bounding",
+      "light_level": 0,
+      "source_folder": "公交站",
+      "source_stem": "jinzai_bus_stop_3",
+      "collision_boxes": [
+        [
+          6,
+          -8,
+          6,
+          32,
+          32,
+          10
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_bus_stop_4",
+      "category": "bus_stops",
+      "kind": "decoration",
+      "placement": "horizontal",
+      "collision_mode": "bounding",
+      "light_level": 0,
+      "source_folder": "公交站",
+      "source_stem": "jinzai_bus_stop_4",
+      "collision_boxes": [
+        [
+          -7,
+          0,
+          6,
+          22,
+          32,
+          10
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_bus_stop_4a",
+      "category": "bus_stops",
+      "kind": "decoration",
+      "placement": "horizontal",
+      "collision_mode": "bounding",
+      "light_level": 0,
+      "source_folder": "公交站",
+      "source_stem": "jinzai_bus_stop_4a",
+      "collision_boxes": [
+        [
+          -7,
+          0,
+          6,
+          22,
+          22,
+          10
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_bus_stop_5",
+      "category": "bus_stops",
+      "kind": "decoration",
+      "placement": "horizontal",
+      "collision_mode": "bounding",
+      "light_level": 0,
+      "source_folder": "公交站",
+      "source_stem": "jinzai_bus_stop_5",
+      "collision_boxes": [
+        [
+          -13,
+          0,
+          6,
+          29,
+          28,
+          10
+        ]
+      ]
+    },
+    {
+      "id": "jinzai_bus_stop_5a",
+      "category": "bus_stops",
+      "kind": "decoration",
+      "placement": "horizontal",
+      "collision_mode": "bounding",
+      "light_level": 0,
+      "source_folder": "公交站",
+      "source_stem": "jinzai_bus_stop_5a",
+      "collision_boxes": [
+        [
+          -10,
+          0,
+          6,
+          26,
+          21,
+          10
+        ]
+      ]
+    }
+  ]
+}

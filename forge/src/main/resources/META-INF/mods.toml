@@ -1,0 +1,39 @@
+modLoader = "javafml"
+loaderVersion = "[47,)"
+license = "All Rights Reserved"
+
+[[mods]]
+modId = "jinzai_street_props"
+version = "${version}"
+displayName = "JINZAI Street Props / 津仔的街道设施"
+logoFile = "icon.png"
+authors = "Crzay津仔"
+description = '''
+JINZAI Street Props is a Minecraft 1.20.1 decorative expansion for Fabric and Forge. It adds street-light heads, branches and poles, road signs and sign poles, and bus-stop signs for city construction. It can be used alongside JINZAI Traffic Lights and MTR.
+
+津仔的街道设施是适用于 Minecraft 1.20.1 Fabric 与 Forge 的城市装饰模组，加入路灯头、路灯分支、路灯杆、路牌、路牌杆与公交站牌，可与津仔的交通灯及 MTR 一同使用。
+
+Art and funding / 美术与资金支持: Crzay津仔. Technical implementation / 技术实现与制作: QiZhang.
+Art asset copyright belongs to Crzay津仔; mod code/config copyright belongs to QiZhang.
+'''
+
+[[dependencies.jinzai_street_props]]
+modId = "forge"
+mandatory = true
+versionRange = "[47,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.jinzai_street_props]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[${minecraft_version},1.20.2)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.jinzai_street_props]]
+modId = "architectury"
+mandatory = true
+versionRange = "[9.0.6,10.0.0)"
+ordering = "AFTER"
+side = "BOTH"

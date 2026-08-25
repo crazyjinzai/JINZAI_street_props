@@ -1,0 +1,11 @@
+本模组由"Crzay津仔"提供美术与资金支持，"QiZhang"提供技术实现与制作。
+发布署名仅为"Crzay津仔"，美术素材版权归 "Crzay津仔"所有，模组代码/配置版权归"QiZhang"所有。
+
+This mod is created with art and financial support from "Crzay津仔" and
+technical implementation and production by "QiZhang". The published author is
+"Crzay津仔" only.
+Copyright in the art assets belongs to "Crzay津仔"; copyright in the mod code
+and configuration belongs to "QiZhang".
+
+Redistribution, modification, or commercial use requires permission from the
+respective copyright owner(s), except where applicable law provides otherwise.
