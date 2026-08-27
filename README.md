@@ -44,19 +44,21 @@ Russian, and Turkish.
 
 ### Build
 
-1. Run `tools/generate_resources.py` with Python 3.11 or newer.
-2. Run `tools/generate_icon.py` with Pillow installed.
-3. Run `gradlew clean build` using JDK 17.
+Run `gradlew clean build` using JDK 17. The committed generated resources are
+complete, so the public source package does not need private design inputs to
+build. `tools/generate_icon.py` can optionally regenerate the icon with Pillow.
 
 The distributable files are generated as:
 
 - `fabric/build/libs/JINZAI_Street_props-Fabric-1.20.1-1.0.0.jar`
 - `forge/build/libs/JINZAI_Street_props-Forge-1.20.1-1.0.0.jar`
 
-The source model folders, naming workbooks, original design document, resource
-generator, icon renderer, and verification tool are retained in this source
-package. Generated resources must not be edited by hand; correct the source or
-generator and regenerate so both loaders remain synchronized.
+The source model folders, source textures, icon artwork, resource generator,
+icon renderer, verification tool, and generated runtime resources are retained
+in this source package. Private non-build documents and naming workbooks are
+excluded. The resource generator requires separately maintained private inputs
+and is retained for the complete private-source workflow; it is not required to
+build the public package.
 
 ### Credit and copyright
 
@@ -104,18 +106,17 @@ copyright in the mod code and configuration belongs to QiZhang.
 
 ### 构建方式
 
-1. 使用 Python 3.11或更高版本运行 `tools/generate_resources.py`。
-2. 安装 Pillow 后运行 `tools/generate_icon.py`。
-3. 使用 JDK 17运行 `gradlew clean build`。
+使用 JDK 17运行 `gradlew clean build`。公开源码已包含完整的生成资源，构建时不需要
+私有设计输入；安装 Pillow 后可按需运行 `tools/generate_icon.py`重新生成图标。
 
 最终可分发文件位于：
 
 - `fabric/build/libs/JINZAI_Street_props-Fabric-1.20.1-1.0.0.jar`
 - `forge/build/libs/JINZAI_Street_props-Forge-1.20.1-1.0.0.jar`
 
-源码包保留原始模型文件夹、命名表格、设计文档、资源生成器、图标渲染脚本和
-验证工具。生成资源不应手工修改；新增内容时应修改源文件或生成器后重新生成，
-从而保证 Fabric 与 Forge 同步。
+源码包保留原始模型文件夹、原始贴图、图标素材、资源生成器、图标渲染脚本、
+验证工具和已生成运行资源；私有且不参与构建的说明文档与命名工作表不随包发布。
+资源生成器需要另行维护私有输入，仅供完整私有源码流程使用，不影响公开源码构建。
 
 ### 署名与版权
 
