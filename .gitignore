@@ -6,3 +6,20 @@ run/
 .idea/
 *.iml
 
+# Local build, runtime and review output are not public source.
+.architectury-transformer/
+__pycache__/
+crash-reports/
+logs/
+*.log
+*.py[cod]
+*.class
+*.zip
+.venv/
+.codex-doc-review/
+.codex-xlsx-read/
+*.docx
+*.xlsx
+*.xls
+*.xlsm
+~$*

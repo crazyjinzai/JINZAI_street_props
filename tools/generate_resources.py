@@ -6,6 +6,7 @@
 
 from __future__ import annotations
 
+import argparse
 import copy
 import itertools
 import json
@@ -18,6 +19,8 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Iterable
 from xml.etree import ElementTree as ET
+
+from phase_two_names import ENGLISH_NAMES, EXTRA_GROUPS, EXTRA_TERMS
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -42,15 +45,18 @@ LOCALES = (
     "tr_tr",
 )
 
-CATEGORY_ORDER = ("street_lights", "road_signs", "bus_stops")
-EXPECTED_CATEGORY_COUNTS = {"street_lights": 82, "road_signs": 30, "bus_stops": 7}
+CATEGORY_ORDER = ("street_lights", "road_signs", "bus_stops", "municipal", "vehicles")
+EXPECTED_CATEGORY_COUNTS = {
+    "street_lights": 117, "road_signs": 30, "bus_stops": 20,
+    "municipal": 6, "vehicles": 40,
+}
 EXPECTED_KIND_COUNTS = {
-    "light_head": 31,
-    "side_branch": 30,
+    "light_head": 41,
+    "side_branch": 46,
     "top_assembly": 3,
-    "street_pole": 18,
+    "street_pole": 27,
     "sign_pole": 7,
-    "decoration": 30,
+    "decoration": 89,
 }
 
 SIDE_BRANCH_IDS = frozenset({
@@ -80,7 +86,80 @@ STREET_POLE_IDS = frozenset({
 })
 SIGN_POLE_IDS = frozenset({f"signpost_pole_{index}" for index in range(1, 8)})
 DETAILED_COLLISION_IDS = STREET_POLE_IDS | SIGN_POLE_IDS
+PHASE_TWO_BRANCH_IDS = frozenset(
+    f"jinzai_street_post_{suffix}" for suffix in (
+        "15", "16", "17", "18", "19", "b1", "b2", "b3", "b3b", "b4",
+        "b5", "b6", "b7", "b8", "b9", "b10",
+    )
+)
+PHASE_TWO_POLE_IDS = frozenset(
+    f"jinzai_street_pole_{suffix}" for suffix in (
+        "6", "6a", "7", "7a", "7b", "7c", "7d", "7e", "b1",
+    )
+)
+SIDE_BRANCH_IDS = SIDE_BRANCH_IDS | PHASE_TWO_BRANCH_IDS
+STREET_POLE_IDS = STREET_POLE_IDS | PHASE_TWO_POLE_IDS
 DEPRECATED_IDS = frozenset({"jinzai_street_post_5b"})
+
+# The supplied police pickup rear uses a 0.625 GUI scale (2.5 times the
+# matching pickup variants), so its inventory icon overlaps adjacent slots.
+# Keep the source art and world geometry intact; use the matching rear-view
+# inventory transform only when exporting this model. The nine additional
+# overrides were checked in-game on 2026-10-01: their GUI projections exceeded
+# 20 pixels. Keep their angles, fit the longest projected side to 16 pixels,
+# and center the icon without touching held/world transforms or source art.
+GUI_DISPLAY_OVERRIDES = {
+    "jinzai_vehicle_sets_7c": {
+        "rotation": [30, 43, 0],
+        "translation": [0.5, -1.75, 0],
+        "scale": [0.25, 0.25, 0.25],
+    },
+    "jinzai_street_pole_6": {
+        "rotation": [0, 0, 0],
+        "translation": [0, -4, 0],
+        "scale": [0.5, 0.5, 0.5],
+    },
+    "jinzai_bus_stop_3": {
+        "rotation": [30, -135, 0],
+        "translation": [2.75043857, 0.15027909, 0],
+        "scale": [0.35360978, 0.35360978, 0.35360978],
+    },
+    "jinzai_bus_stop_1": {
+        "rotation": [30, -135, 0],
+        "translation": [0.7702731, -0.71548282, 0],
+        "scale": [0.36311022, 0.36311022, 0.36311022],
+    },
+    "jinzai_bus_stop_2": {
+        "rotation": [30, -135, 0],
+        "translation": [0, 0, 0],
+        "scale": [0.37101575, 0.37101575, 0.37101575],
+    },
+    "jinzai_bus_stop_4": {
+        "rotation": [30, -135, 0],
+        "translation": [-0.14627412, -2.93951265, 0],
+        "scale": [0.41372568, 0.41372568, 0.41372568],
+    },
+    "signpost_12a": {
+        "rotation": [30, -135, 0],
+        "translation": [0, -3.09760588, 0],
+        "scale": [0.42539267, 0.42539267, 0.42539267],
+    },
+    "jinzai_street_light_14": {
+        "rotation": [30, -135, 0],
+        "translation": [0, -2.6177753, 0],
+        "scale": [0.43182094, 0.43182094, 0.43182094],
+    },
+    "jinzai_bus_stop_5": {
+        "rotation": [30, -135, 0],
+        "translation": [0, -3.05031169, 0],
+        "scale": [0.44027457, 0.44027457, 0.44027457],
+    },
+    "jinzai_street_post_14a": {
+        "rotation": [30, -135, 0],
+        "translation": [0, -3.58763261, 0],
+        "scale": [0.45254834, 0.45254834, 0.45254834],
+    },
+}
 
 _SHEET_NS = "http://schemas.openxmlformats.org/spreadsheetml/2006/main"
 _DOC_REL_NS = "http://schemas.openxmlformats.org/officeDocument/2006/relationships"
@@ -186,14 +265,16 @@ def source_pair_stems(folder: str) -> set[str]:
 
 
 def english_name(zh_cn: str) -> str:
-    head = re.fullmatch(r"(LED|钨丝灯|花园)路灯头(\d+)", zh_cn)
+    if zh_cn in ENGLISH_NAMES:
+        return ENGLISH_NAMES[zh_cn]
+    head = re.fullmatch(r"(LED|钨丝灯|钨丝|花园)路灯头([Bb]?\d+[a-z]?)", zh_cn)
     if head:
-        head_type = {"LED": "LED", "钨丝灯": "Incandescent", "花园": "Garden"}[head.group(1)]
+        head_type = {"LED": "LED", "钨丝灯": "Incandescent", "钨丝": "Incandescent", "花园": "Garden"}[head.group(1)]
         return f"{head_type} Street Light Head {head.group(2)}"
-    branch = re.fullmatch(r"(白色|蓝色|黑色|墨绿色)路灯(分支|成品)(\d+)", zh_cn)
+    branch = re.fullmatch(r"(白色|蓝色|黑色|墨绿色|灰色)路灯(分支|成品)([Bb]?\d+[a-z]?)", zh_cn)
     if branch:
         color = {
-            "白色": "White", "蓝色": "Blue", "黑色": "Black", "墨绿色": "Dark Green",
+            "白色": "White", "蓝色": "Blue", "黑色": "Black", "墨绿色": "Dark Green", "灰色": "Gray",
         }[branch.group(1)]
         noun = "Street Light Branch" if branch.group(2) == "分支" else "Complete Street Light"
         return f"{color} {noun} {branch.group(3)}"
@@ -443,7 +524,12 @@ def localized_name(spec: AssetSpec, locale: str) -> str:
     if locale == "en_us":
         return spec.en_us
     result = spec.en_us
-    terms = TERM_TRANSLATIONS[locale]
+    new_content = (
+        spec.identifier in PHASE_TWO_BRANCH_IDS | PHASE_TWO_POLE_IDS
+        or spec.identifier.startswith(("jinzai_street_light_b", "jinzai_vehicle_sets_", "jinzai_street_decoration_"))
+        or spec.identifier.startswith(tuple(f"jinzai_bus_stop_{number}" for number in (6, 7, 8)))
+    )
+    terms = {**TERM_TRANSLATIONS[locale], **EXTRA_TERMS[locale]} if new_content else TERM_TRANSLATIONS[locale]
     for source in sorted(terms, key=len, reverse=True):
         result = result.replace(source, terms[source])
     return result
@@ -457,16 +543,18 @@ def classify(identifier: str, category: str) -> tuple[str, str, str, int]:
     if identifier in TOP_ASSEMBLY_IDS:
         return "top_assembly", "top_only", "bounding", 0
     if identifier in STREET_POLE_IDS:
-        return "street_pole", "horizontal", "detailed", 0
+        mode = "detailed" if identifier in DETAILED_COLLISION_IDS else "bounding"
+        return "street_pole", "horizontal", mode, 0
     if identifier in SIGN_POLE_IDS:
         return "sign_pole", "horizontal", "detailed", 0
     return "decoration", "horizontal", "bounding", 0
 
 
-def discover_specs() -> list[AssetSpec]:
+def discover_specs(private_input_root: Path, phase_two_input_root: Path) -> list[AssetSpec]:
     labels: dict[str, tuple[str, str]] = {}
 
     def add(folder: str, identifier: str, label: str) -> None:
+        identifier = identifier.lower()
         if not _RESOURCE_ID_RE.fullmatch(identifier):
             raise ValueError(f"Invalid resource id {identifier!r}")
         if identifier in DEPRECATED_IDS:
@@ -481,7 +569,7 @@ def discover_specs() -> list[AssetSpec]:
         labels[identifier] = (folder, label)
 
     light_folder = "路灯杆与支架"
-    light_rows = read_first_sheet_rows(ROOT / light_folder / "路灯杆与支架模型名称.xlsx")
+    light_rows = read_first_sheet_rows(private_input_root / light_folder / "路灯杆与支架模型名称.xlsx")
     for row in light_rows:
         for id_column, name_column in (("A", "B"), ("D", "E"), ("G", "H")):
             identifier = row.get(id_column, "")
@@ -490,7 +578,7 @@ def discover_specs() -> list[AssetSpec]:
                 add(light_folder, identifier, label)
 
     sign_folder = "路牌"
-    sign_rows = read_first_sheet_rows(ROOT / sign_folder / "路牌模型名称.xlsx")
+    sign_rows = read_first_sheet_rows(private_input_root / sign_folder / "路牌模型名称.xlsx")
     for row in sign_rows:
         for id_column, name_column in (("A", "B"), ("D", "E"), ("G", "H")):
             identifier = row.get(id_column, "")
@@ -499,16 +587,39 @@ def discover_specs() -> list[AssetSpec]:
                 add(sign_folder, identifier, label)
 
     bus_folder = "公交站"
-    for row in read_first_sheet_rows(ROOT / bus_folder / "公交站方块模型名称.xlsx"):
+    for row in read_first_sheet_rows(private_input_root / bus_folder / "公交站方块模型名称.xlsx"):
         identifier = row.get("A", "")
         label = row.get("B", "")
         if _RESOURCE_ID_RE.fullmatch(identifier) and label:
             add(bus_folder, identifier, label)
 
+    legacy_ids = set(labels)
+    if len(legacy_ids) != 119:
+        raise ValueError("The private phase-one workbooks must preserve all 119 legacy IDs")
+
+    new_workbooks = (
+        (light_folder, "路灯（新增）/路灯新增模型名称.xlsx", (("A", "B"), ("D", "E"), ("G", "H"))),
+        (bus_folder, "公交站（新增）/公交站方块新增名称.xlsx", (("A", "B"),)),
+        ("市政设施", "市政设施/市政设施方块名称.xlsx", (("A", "B"),)),
+        ("汽车载具", "汽车载具/普通载具新增方块.xlsx", (("A", "B"),)),
+    )
+    for folder, workbook, columns in new_workbooks:
+        for row in read_first_sheet_rows(phase_two_input_root / workbook):
+            for id_column, name_column in columns:
+                identifier, label = row.get(id_column, "").lower(), row.get(name_column, "")
+                if _RESOURCE_ID_RE.fullmatch(identifier) and label:
+                    if identifier in labels:
+                        raise ValueError(f"Phase-two ID already exists: {identifier}")
+                    add(folder, identifier, label)
+    if len(set(labels) - legacy_ids) != 94:
+        raise ValueError("Expected 94 named phase-two additions")
+
     disk_by_folder = {
         light_folder: source_pair_stems(light_folder),
         sign_folder: source_pair_stems(sign_folder),
         bus_folder: source_pair_stems(bus_folder),
+        "市政设施": source_pair_stems("市政设施"),
+        "汽车载具": source_pair_stems("汽车载具"),
     }
     all_disk = set().union(*disk_by_folder.values())
     if set(labels) != all_disk:
@@ -516,15 +627,17 @@ def discover_specs() -> list[AssetSpec]:
             f"Workbook/source mismatch: workbook-only={sorted(set(labels) - all_disk)}, "
             f"source-only={sorted(all_disk - set(labels))}"
         )
-    if len(labels) != 119 or "jinzai_street_post_5b" in labels or "jinzai_street_post_4c" not in labels:
-        raise ValueError("Corrected 119-model inventory assertion failed")
+    if len(labels) != 213 or "jinzai_street_post_5b" in labels or "jinzai_street_post_4c" not in labels:
+        raise ValueError("Corrected 213-model inventory assertion failed")
 
     specs: list[AssetSpec] = []
     for identifier, (folder, zh_cn) in labels.items():
         category = (
             "street_lights" if folder == light_folder
             else "road_signs" if folder == sign_folder
-            else "bus_stops"
+            else "bus_stops" if folder == bus_folder
+            else "municipal" if folder == "市政设施"
+            else "vehicles"
         )
         kind, placement, collision_mode, light_level = classify(identifier, category)
         specs.append(AssetSpec(
@@ -735,7 +848,7 @@ def export_model(spec: AssetSpec) -> tuple[dict[str, Any], list[list[float | int
     source = json.loads(spec.source_model.read_text(encoding="utf-8"))
     if source.get("meta", {}).get("model_format") != "java_block":
         raise ValueError(f"Not a java_block model: {spec.source_model}")
-    if source.get("name") != spec.source_stem:
+    if str(source.get("name", "")).lower() != spec.source_stem:
         raise ValueError(f"Model name/file mismatch: {spec.source_model}")
     width = int(source["resolution"]["width"])
     height = int(source["resolution"]["height"])
@@ -748,10 +861,13 @@ def export_model(spec: AssetSpec) -> tuple[dict[str, Any], list[list[float | int
         and element.get("visibility") is not False
     ]
     elements = [export_element(element, width, height, texture_index) for element in visible]
+    # Only legacy poles retain the detailed shape policy. Every new block gets
+    # one AABB around the placed model, without generating tiny intermediate cells.
+    box_exporter = detailed_collision_boxes if spec.collision_mode == "detailed" else lambda element: [element_collision_box(element)]
     detailed_boxes = [
         box
         for element in visible
-        for box in detailed_collision_boxes(element)
+        for box in box_exporter(element)
     ]
     boxes = detailed_boxes if spec.collision_mode == "detailed" else enclosing_box(detailed_boxes)
     model: dict[str, Any] = {
@@ -767,6 +883,8 @@ def export_model(spec: AssetSpec) -> tuple[dict[str, Any], list[list[float | int
     }
     if "display" in source:
         model["display"] = copy.deepcopy(source["display"])
+    if spec.identifier in GUI_DISPLAY_OVERRIDES:
+        model.setdefault("display", {})["gui"] = copy.deepcopy(GUI_DISPLAY_OVERRIDES[spec.identifier])
     return model, boxes, len(raw_elements), len(raw_elements) - len(visible)
 
 
@@ -801,8 +919,17 @@ def write_json(path: Path, value: Any) -> None:
 
 
 def main() -> None:
-    specs = discover_specs()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--private-input-root", type=Path, required=True,
+                        help="Private phase-one folder containing the three naming workbooks")
+    parser.add_argument("--phase-two-input-root", type=Path, required=True,
+                        help="Private phase-two folder containing the supplied naming workbooks")
+    arguments = parser.parse_args()
+    specs = discover_specs(arguments.private_input_root, arguments.phase_two_input_root)
     for generated_root in (ASSET_ROOT, DATA_ROOT):
+        resolved = generated_root.resolve()
+        if resolved != generated_root.absolute() or not resolved.is_relative_to(ROOT.resolve()):
+            raise ValueError(f"Refusing to replace a redirected resource directory: {generated_root}")
         if generated_root.exists():
             shutil.rmtree(generated_root)
 
@@ -814,10 +941,10 @@ def main() -> None:
 
     languages: dict[str, dict[str, str]] = {locale: {} for locale in LOCALES}
     for locale, names in GROUP_TRANSLATIONS.items():
+        names = names + EXTRA_GROUPS[locale]
         languages[locale].update({
-            f"itemGroup.{MOD_ID}.street_lights": names[0],
-            f"itemGroup.{MOD_ID}.road_signs": names[1],
-            f"itemGroup.{MOD_ID}.bus_stops": names[2],
+            f"itemGroup.{MOD_ID}.{category}": name
+            for category, name in zip(CATEGORY_ORDER, names, strict=True)
         })
 
     catalog: list[dict[str, Any]] = []
@@ -863,17 +990,14 @@ def main() -> None:
     }
     if category_counts != EXPECTED_CATEGORY_COUNTS or kind_counts != EXPECTED_KIND_COUNTS:
         raise ValueError(f"Generated inventory mismatch: {category_counts}, {kind_counts}")
-    if collision_count != 257:
-        raise ValueError(f"Expected 257 collision boxes, generated {collision_count}")
-    if visible_count != 1014 or raw_count != 1015 or excluded_count != 1:
-        raise ValueError(
-            f"Element inventory mismatch: raw={raw_count}, visible={visible_count}, "
-            f"excluded={excluded_count}"
-        )
+    if collision_count != 351:
+        raise ValueError(f"Expected 351 collision boxes, generated {collision_count}")
+    if raw_count != visible_count + excluded_count:
+        raise ValueError("Element accounting mismatch")
 
     expected_keys = None
     for locale, values in languages.items():
-        if len(values) != 122 or any(not value.strip() for value in values.values()):
+        if len(values) != 218 or any(not value.strip() for value in values.values()):
             raise ValueError(f"Incomplete language {locale}: {len(values)} keys")
         keys = set(values)
         if expected_keys is None:
@@ -886,11 +1010,7 @@ def main() -> None:
 
     write_json(ASSET_ROOT / "block_catalog.json", {"schema": 1, "blocks": catalog})
     all_values: list[str] = []
-    tag_names = {
-        "street_lights": "street_lights",
-        "road_signs": "road_signs",
-        "bus_stops": "bus_stops",
-    }
+    tag_names = {category: category for category in CATEGORY_ORDER}
     for category, values in category_values.items():
         sorted_values = sorted(values)
         all_values.extend(sorted_values)
@@ -907,7 +1027,7 @@ def main() -> None:
         {"pack": {"pack_format": 15, "description": "JINZAI Street Props resources"}},
     )
     print(
-        f"Generated 119 blocks ({category_counts}), {visible_count} visible elements, "
+        f"Generated {len(specs)} blocks ({category_counts}), {visible_count} visible elements, "
         f"{collision_count} collision boxes, and {len(languages)} languages."
     )
 

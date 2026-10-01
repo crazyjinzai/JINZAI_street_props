@@ -36,7 +36,7 @@ import java.util.Set;
 
 public final class JinzaiStreetProps {
     public static final String MOD_ID = "jinzai_street_props";
-    public static final String VERSION = "1.0.0";
+    public static final String VERSION = "1.1.2";
 
     private static final String CATALOG_RESOURCE =
         "assets/" + MOD_ID + "/block_catalog.json";
@@ -185,7 +185,9 @@ public final class JinzaiStreetProps {
             if (kind.expectedPlacement != placement) {
                 throw catalogError(index, "kind/placement mismatch for " + entry.id);
             }
-            if (kind.isDetailedPole() != (collisionMode == CollisionMode.DETAILED)) {
+            // Phase-two poles follow the same single-box policy as all new props.
+            // Detailed collision is retained only for the existing pole assets.
+            if (collisionMode == CollisionMode.DETAILED && !kind.isPole()) {
                 throw catalogError(index, "kind/collision_mode mismatch for " + entry.id);
             }
             List<ModelBox> boxes = validateBoxes(entry.collision_boxes, index);
@@ -205,16 +207,18 @@ public final class JinzaiStreetProps {
             kindCounts.put(kind, kindCounts.get(kind) + 1);
         }
 
-        assertCount("all blocks", result.size(), 119);
-        assertCount("street lights", categoryCounts.get(Category.STREET_LIGHTS), 82);
+        assertCount("all blocks", result.size(), 213);
+        assertCount("street lights", categoryCounts.get(Category.STREET_LIGHTS), 117);
         assertCount("road signs", categoryCounts.get(Category.ROAD_SIGNS), 30);
-        assertCount("bus stops", categoryCounts.get(Category.BUS_STOPS), 7);
-        assertCount("light heads", kindCounts.get(Kind.LIGHT_HEAD), 31);
-        assertCount("side branches", kindCounts.get(Kind.SIDE_BRANCH), 30);
+        assertCount("bus stops", categoryCounts.get(Category.BUS_STOPS), 20);
+        assertCount("municipal facilities", categoryCounts.get(Category.MUNICIPAL), 6);
+        assertCount("vehicles", categoryCounts.get(Category.VEHICLES), 40);
+        assertCount("light heads", kindCounts.get(Kind.LIGHT_HEAD), 41);
+        assertCount("side branches", kindCounts.get(Kind.SIDE_BRANCH), 46);
         assertCount("top assemblies", kindCounts.get(Kind.TOP_ASSEMBLY), 3);
-        assertCount("street-light poles", kindCounts.get(Kind.STREET_POLE), 18);
+        assertCount("street-light poles", kindCounts.get(Kind.STREET_POLE), 27);
         assertCount("sign poles", kindCounts.get(Kind.SIGN_POLE), 7);
-        assertCount("other decorations", kindCounts.get(Kind.DECORATION), 30);
+        assertCount("other decorations", kindCounts.get(Kind.DECORATION), 89);
         return Collections.unmodifiableList(result);
     }
 
@@ -272,7 +276,9 @@ public final class JinzaiStreetProps {
     public enum Category {
         STREET_LIGHTS("street_lights"),
         ROAD_SIGNS("road_signs"),
-        BUS_STOPS("bus_stops");
+        BUS_STOPS("bus_stops"),
+        MUNICIPAL("municipal"),
+        VEHICLES("vehicles");
 
         private final String serializedName;
 
@@ -360,7 +366,7 @@ public final class JinzaiStreetProps {
             this.expectedPlacement = expectedPlacement;
         }
 
-        private boolean isDetailedPole() {
+        private boolean isPole() {
             return this == STREET_POLE || this == SIGN_POLE;
         }
 

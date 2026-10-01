@@ -12,6 +12,7 @@ dependencies {
 }
 
 tasks.named("jar", Jar) {
+    from(rootProject.file("LICENSE"))
     from(rootProject.file("COPYRIGHT.txt")) {
         into "META-INF"
         rename { "COPYRIGHT-JINZAI-Street-props.txt" }

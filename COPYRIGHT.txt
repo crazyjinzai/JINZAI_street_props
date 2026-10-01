@@ -7,5 +7,10 @@ technical implementation and production by "QiZhang". The published author is
 Copyright in the art assets belongs to "Crzay津仔"; copyright in the mod code
 and configuration belongs to "QiZhang".
 
-Redistribution, modification, or commercial use requires permission from the
-respective copyright owner(s), except where applicable law provides otherwise.
+本项目自身的代码、配置、模型、贴图及其他素材统一采用 MIT 许可证，详见根目录 LICENSE。
+上述版权归属保持不变。第三方组件及其素材保留各自的许可证和版权声明。
+
+The project's own code, configuration, models, textures, and other assets are
+licensed under the MIT License; see LICENSE in the project root.
+The copyright ownership stated above is unchanged. Third-party components and
+their assets retain their respective licenses and copyright notices.
