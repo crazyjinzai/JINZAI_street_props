@@ -36,11 +36,24 @@ import java.util.Set;
 
 public final class JinzaiStreetProps {
     public static final String MOD_ID = "jinzai_street_props";
-    public static final String VERSION = "1.1.2";
+    public static final String VERSION = "1.1.4";
 
     private static final String CATALOG_RESOURCE =
         "assets/" + MOD_ID + "/block_catalog.json";
     private static final int CATALOG_SCHEMA = 1;
+    private static final Set<String> MODEL_ALIGNED_PROPS = Set.of(
+        "jinzai_guardrail_2d",
+        "jinzai_guardrail_2f",
+        "jinzai_guardrail_5b",
+        "jinzai_guardrail_ga1",
+        "jinzai_guardrail_ga2",
+        "jinzai_guardrail_gk4",
+        "jinzai_guardrail_gk5",
+        "jinzai_street_decoration_3a",
+        "jinzai_street_decoration_7a",
+        "jinzai_street_decoration_16a",
+        "jinzai_street_decoration_16b"
+    );
     private static final Gson GSON = new Gson();
 
     private static final List<BlockDefinition> DEFINITIONS = loadCatalog();
@@ -179,16 +192,16 @@ public final class JinzaiStreetProps {
             if (entry.light_level < 0 || entry.light_level > 15) {
                 throw catalogError(index, "light_level outside 0..15");
             }
-            if ((kind == Kind.LIGHT_HEAD) != (entry.light_level == 15)) {
-                throw catalogError(index, "only light heads must use light level 15");
+            boolean lit = kind == Kind.LIGHT_HEAD || entry.id.equals("jinzai_street_post_21") || entry.id.equals("jinzai_street_post_21b");
+            if (entry.light_level != (lit ? 15 : 0)) {
+                throw catalogError(index, "unexpected light level for " + entry.id);
             }
             if (kind.expectedPlacement != placement) {
                 throw catalogError(index, "kind/placement mismatch for " + entry.id);
             }
-            // Phase-two poles follow the same single-box policy as all new props.
-            // Detailed collision is retained only for the existing pole assets.
-            if (collisionMode == CollisionMode.DETAILED && !kind.isPole()) {
-                throw catalogError(index, "kind/collision_mode mismatch for " + entry.id);
+            // Only the eleven approved corner props follow their model geometry; all others use one box.
+            if ((collisionMode == CollisionMode.DETAILED) != MODEL_ALIGNED_PROPS.contains(entry.id)) {
+                throw catalogError(index, "corner/collision_mode mismatch for " + entry.id);
             }
             List<ModelBox> boxes = validateBoxes(entry.collision_boxes, index);
             if (collisionMode == CollisionMode.BOUNDING && boxes.size() != 1) {
@@ -207,18 +220,18 @@ public final class JinzaiStreetProps {
             kindCounts.put(kind, kindCounts.get(kind) + 1);
         }
 
-        assertCount("all blocks", result.size(), 213);
-        assertCount("street lights", categoryCounts.get(Category.STREET_LIGHTS), 117);
+        assertCount("all blocks", result.size(), 370);
+        assertCount("street lights", categoryCounts.get(Category.STREET_LIGHTS), 149);
         assertCount("road signs", categoryCounts.get(Category.ROAD_SIGNS), 30);
-        assertCount("bus stops", categoryCounts.get(Category.BUS_STOPS), 20);
-        assertCount("municipal facilities", categoryCounts.get(Category.MUNICIPAL), 6);
-        assertCount("vehicles", categoryCounts.get(Category.VEHICLES), 40);
-        assertCount("light heads", kindCounts.get(Kind.LIGHT_HEAD), 41);
-        assertCount("side branches", kindCounts.get(Kind.SIDE_BRANCH), 46);
+        assertCount("bus stops", categoryCounts.get(Category.BUS_STOPS), 21);
+        assertCount("municipal facilities", categoryCounts.get(Category.MUNICIPAL), 71);
+        assertCount("vehicles", categoryCounts.get(Category.VEHICLES), 99);
+        assertCount("light heads", kindCounts.get(Kind.LIGHT_HEAD), 47);
+        assertCount("side branches and accessories", kindCounts.get(Kind.SIDE_BRANCH), 67);
         assertCount("top assemblies", kindCounts.get(Kind.TOP_ASSEMBLY), 3);
-        assertCount("street-light poles", kindCounts.get(Kind.STREET_POLE), 27);
+        assertCount("street-light poles", kindCounts.get(Kind.STREET_POLE), 32);
         assertCount("sign poles", kindCounts.get(Kind.SIGN_POLE), 7);
-        assertCount("other decorations", kindCounts.get(Kind.DECORATION), 89);
+        assertCount("other decorations", kindCounts.get(Kind.DECORATION), 214);
         return Collections.unmodifiableList(result);
     }
 

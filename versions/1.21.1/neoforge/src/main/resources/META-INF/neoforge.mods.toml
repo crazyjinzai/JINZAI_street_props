@@ -1,0 +1,39 @@
+modLoader = "javafml"
+loaderVersion = "[4,)"
+license = "MIT"
+
+[[mods]]
+modId = "jinzai_street_props"
+version = "${version}"
+displayName = "津仔的街道设施"
+logoFile = "icon.png"
+authors = "Crzay津仔"
+description = '''
+JINZAI Street Props for Minecraft 1.21.1. 370 decorative blocks across five creative tabs. Models, textures, collision and placement behavior share the 1.1.4 content catalog. Vehicle parts are static decoration.
+津仔的街道设施 Minecraft 1.21.1 移植版，与 1.1.4 共用模型、贴图、碰撞与放置行为。370 个方块保留五个创造分类，车辆为静态装饰。
+Art and funding / 美术与资金支持: Crzay津仔. Technical implementation / 技术实现: QiZhang.
+'''
+
+[[dependencies.jinzai_street_props]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21.1.248,21.2)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.jinzai_street_props]]
+modId = "minecraft"
+type = "required"
+versionRange = "[1.21.1,1.21.2)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.jinzai_street_props]]
+modId = "architectury"
+type = "required"
+versionRange = "[13.0.8,14.0.0)"
+ordering = "AFTER"
+side = "BOTH"
+
+[features.jinzai_street_props]
+javaVersion = "[21,)"

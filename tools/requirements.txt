@@ -1,0 +1,2 @@
+# Optional source/image verification and icon tooling; Java builds do not need Python.
+Pillow==12.3.0

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "jinzai_street_props:block/jinzai_street_decoration_16a"
+    },
+    "facing=east": {
+      "model": "jinzai_street_props:block/jinzai_street_decoration_16a",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "jinzai_street_props:block/jinzai_street_decoration_16a",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "jinzai_street_props:block/jinzai_street_decoration_16a",
+      "y": 270
+    }
+  }
+}

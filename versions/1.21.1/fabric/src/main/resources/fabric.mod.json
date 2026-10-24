@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "jinzai_street_props",
+  "version": "${version}",
+  "name": "JINZAI Street Props / 津仔的街道设施",
+  "description": "JINZAI Street Props for Minecraft 1.21.1: 370 decorative blocks in five creative tabs, including street lighting, signs, bus stops, municipal facilities and static vehicle parts. Models, textures, collision and placement behavior share the 1.1.4 content catalog.\n\n津仔的街道设施 Minecraft 1.21.1 移植版，370 个装饰方块，保留路灯、路牌、公交站、市政设施、汽车载具五个创造分类。车辆为静态装饰方块。美术与资金支持：Crzay津仔；技术实现：QiZhang。",
+  "authors": [
+    "Crzay津仔"
+  ],
+  "license": "MIT",
+  "icon": "icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "cn.crazyjinzai.streetprops.fabric.JinzaiStreetPropsFabric"
+    ],
+    "client": [
+      "cn.crazyjinzai.streetprops.fabric.JinzaiStreetPropsFabricClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.17.2",
+    "minecraft": "1.21.1",
+    "java": ">=21",
+    "fabric-api": ">=0.116.15+1.21.1",
+    "architectury": ">=13.0.8 <14.0.0"
+  },
+  "suggests": {
+    "jinzai_traffic_lights": "*",
+    "mtr": "*"
+  }
+}

@@ -1,4 +1,4 @@
-"""Verify generated source resources and optional Fabric/Forge release JARs.
+"""Verify generated source resources and optional 1.20.1 Fabric/Forge JARs.
 
 本模组由"Crzay津仔"提供美术与资金支持，"QiZhang"提供技术实现与制作。
 发布署名仅为"Crzay津仔"，美术素材版权归 "Crzay津仔"所有，模组代码/配置版权归"QiZhang"所有。
@@ -21,7 +21,7 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 MOD_ID = "jinzai_street_props"
-VERSION = "1.1.2"
+VERSION = "1.1.4"
 FABRIC_ARCHITECTURY_RANGE = ">=9.0.6 <10.0.0"
 FORGE_ARCHITECTURY_RANGE = "[9.0.6,10.0.0)"
 RESOURCES = ROOT / "common" / "src" / "main" / "resources"
@@ -33,18 +33,18 @@ LOCALES = (
     "id_id", "ja_jp", "ko_kr", "pt_br", "ru_ru", "tr_tr",
 )
 EXPECTED_CATEGORY_COUNTS = Counter({
-    "street_lights": 117, "road_signs": 30, "bus_stops": 20, "municipal": 6, "vehicles": 40,
+    "street_lights": 149, "road_signs": 30, "bus_stops": 21, "municipal": 71, "vehicles": 99,
 })
 EXPECTED_KIND_COUNTS = Counter({
-    "light_head": 41, "side_branch": 46, "top_assembly": 3,
-    "street_pole": 27, "sign_pole": 7, "decoration": 89,
+    "light_head": 47, "side_branch": 67, "top_assembly": 3,
+    "street_pole": 32, "sign_pole": 7, "decoration": 214,
 })
 GUI_FIT_IDS = frozenset({
     "jinzai_street_light_14", "jinzai_street_post_14a", "jinzai_street_pole_6",
     "signpost_12a", "jinzai_bus_stop_1", "jinzai_bus_stop_2",
     "jinzai_bus_stop_3", "jinzai_bus_stop_4", "jinzai_bus_stop_5",
 })
-EXPECTED_PRECISE = {
+LEGACY_POLE_IDS = {
     "jinzai_street_pole_1", "jinzai_street_pole_1a", "jinzai_street_pole_1b",
     "jinzai_street_pole_1c", "jinzai_street_pole_1d", "jinzai_street_pole_2",
     "jinzai_street_pole_2a", "jinzai_street_pole_2b", "jinzai_street_pole_2c",
@@ -71,6 +71,16 @@ EXPECTED_SIDE.update(f"jinzai_street_post_{suffix}" for suffix in (
     "15", "16", "17", "18", "19", "b1", "b2", "b3", "b3b", "b4",
     "b5", "b6", "b7", "b8", "b9", "b10",
 ))
+EXPECTED_SIDE.update(f"jinzai_street_post_{suffix}" for suffix in (
+    "20", "21", "21b", "22", "b11", "b12", "b13", "b14", "b15", "b16", "b17", "b18", "b19",
+))
+EXPECTED_PRECISE = {
+    "jinzai_street_decoration_3a", "jinzai_guardrail_2d", "jinzai_guardrail_2f",
+    "jinzai_guardrail_5b", "jinzai_guardrail_ga1", "jinzai_guardrail_ga2",
+    "jinzai_guardrail_gk4", "jinzai_guardrail_gk5",
+    "jinzai_street_decoration_7a", "jinzai_street_decoration_16a", "jinzai_street_decoration_16b",
+}
+EXPECTED_SIDE.update(f"jinzai_street_deco_{suffix}" for suffix in ("1", "1a", "2", "3", "4", "5", "6", "6a"))
 COPYRIGHT_SENTENCE = (
     '发布署名仅为"Crzay津仔"，美术素材版权归 "Crzay津仔"所有，'
     '模组代码/配置版权归"QiZhang"所有。'
@@ -112,8 +122,8 @@ def source_ids() -> set[str]:
         assert models == textures, f"Unpaired source files in {folder}"
         assert not ids & models, f"Duplicate source stems across folders: {ids & models}"
         ids.update(models)
-    assert len(ids) == 213, f"Expected 213 source pairs, found {len(ids)}"
-    assert "jinzai_street_post_b11" not in ids, "Unnamed, unapproved b11 must remain excluded"
+    assert len(ids) == 370, f"Expected 370 source pairs, found {len(ids)}"
+    assert "jinzai_street_post_b11" in ids, "Phase-three naming table explicitly includes b11"
     assert "jinzai_street_post_5b" not in ids, "Deprecated post_5b is still present"
     assert "jinzai_street_post_4c" in ids, "Corrected post_4c is missing"
     return ids
@@ -123,7 +133,7 @@ def validate_catalog(document: Any, expected_ids: set[str]) -> list[dict[str, An
     assert isinstance(document, dict) and set(document) == {"schema", "blocks"}
     assert document["schema"] == 1
     blocks = document["blocks"]
-    assert isinstance(blocks, list) and len(blocks) == 213
+    assert isinstance(blocks, list) and len(blocks) == 370
     fields = {
         "id", "category", "kind", "placement", "collision_mode", "light_level",
         "source_folder", "source_stem", "collision_boxes",
@@ -139,12 +149,14 @@ def validate_catalog(document: Any, expected_ids: set[str]) -> list[dict[str, An
     side = {block["id"] for block in blocks if block["placement"] == "side_only"}
     top = {block["id"] for block in blocks if block["placement"] == "top_only"}
     lit = {block["id"] for block in blocks if block["light_level"] == 15}
-    assert precise == EXPECTED_PRECISE and len(bounding) == 188
+    assert precise == EXPECTED_PRECISE and len(bounding) == 359
     assert side == EXPECTED_SIDE and top == EXPECTED_TOP
-    assert len(lit) == 41 and all(identifier.startswith("jinzai_street_light_") for identifier in lit)
+    assert len(lit) == 49
+    assert lit == ({block["id"] for block in blocks if block["kind"] == "light_head"}
+                   | {"jinzai_street_post_21", "jinzai_street_post_21b"})
     assert all(block["light_level"] in (0, 15) for block in blocks)
     assert all(len(block["collision_boxes"]) == 1 for block in blocks if block["id"] in bounding)
-    assert sum(len(block["collision_boxes"]) for block in blocks) == 351
+    assert sum(len(block["collision_boxes"]) for block in blocks) == 1516
     for block in blocks:
         boxes = block["collision_boxes"]
         assert isinstance(boxes, list) and boxes
@@ -215,7 +227,13 @@ def validate_legacy_compatibility(legacy_root: Path) -> None:
     changed_gui = {"signpost_5", "signpost_6", "signpost_7"} | GUI_FIT_IDS
     for entry in old_blocks:
         identifier = entry["id"]
-        assert current[identifier] == entry, f"Legacy registration/collision changed: {identifier}"
+        if identifier in LEGACY_POLE_IDS:
+            ignored = {"collision_mode", "collision_boxes"}
+            assert {k: v for k, v in current[identifier].items() if k not in ignored} == {
+                k: v for k, v in entry.items() if k not in ignored}, identifier
+            assert entry["collision_mode"] == "detailed" and current[identifier]["collision_mode"] == "bounding"
+        else:
+            assert current[identifier] == entry, f"Legacy registration/collision changed: {identifier}"
         old_model = load_json(old_assets / "models" / "block" / f"{identifier}.json")
         new_model = load_json(ASSETS / "models" / "block" / f"{identifier}.json")
         if identifier in changed_gui:
@@ -233,10 +251,15 @@ def validate_legacy_compatibility(legacy_root: Path) -> None:
         original = load_json(old_assets / "lang" / f"{locale}.json")
         current_language = load_json(ASSETS / "lang" / f"{locale}.json")
         assert all(current_language[key] == value for key, value in original.items()), locale
-    print("LEGACY_PASS: all 119 IDs, collisions, world geometry, textures and names retained; only the 11 allowed legacy GUI transforms may differ")
+    print("LEGACY_PASS: all 119 IDs, world geometry, textures and names retained; 25 pole collisions now use enclosing boxes, and allowed legacy GUI transforms may differ")
 
 
 def validate_source_resources() -> None:
+    for project in (ROOT, ROOT / "versions/1.21.1"):
+        source = (project / "common/src/main/java/cn/crazyjinzai/streetprops/JinzaiStreetProps.java").read_text(encoding="utf-8")
+        aligned = re.search(r"MODEL_ALIGNED_PROPS\s*=\s*Set\.of\((.*?)\);", source, re.S)
+        assert aligned and set(re.findall(r'"([a-z0-9_]+)"', aligned.group(1))) == EXPECTED_PRECISE, "Corner IDs differ between resource and runtime policy"
+        assert "(collisionMode == CollisionMode.DETAILED) != MODEL_ALIGNED_PROPS.contains(entry.id)" in source
     expected_ids = source_ids()
     blocks = validate_catalog(load_json(ASSETS / "block_catalog.json"), expected_ids)
     by_id = {block["id"]: block for block in blocks}
@@ -302,12 +325,12 @@ def validate_source_resources() -> None:
         }
         loot = load_json(DATA / "loot_tables" / "blocks" / f"{identifier}.json")
         assert loot["pools"][0]["entries"][0]["name"] == f"{MOD_ID}:{identifier}"
-    assert (raw_elements, visible_elements) == (4295, 4293)
+    assert (raw_elements, visible_elements) == (9263, 9257)
 
     expected_keys: set[str] | None = None
     for locale in LOCALES:
         language = load_json(ASSETS / "lang" / f"{locale}.json")
-        assert isinstance(language, dict) and len(language) == 218
+        assert isinstance(language, dict) and len(language) == 375
         assert all(isinstance(value, str) and value.strip() for value in language.values())
         assert not any(key.startswith("tooltip.") for key in language)
         keys = set(language)
@@ -319,9 +342,15 @@ def validate_source_resources() -> None:
     assert pack["pack"]["pack_format"] == 15
     icon = (RESOURCES / "icon.png").read_bytes()
     assert icon.startswith(b"\x89PNG\r\n\x1a\n")
-    assert struct.unpack(">II", icon[16:24]) == (512, 512)
+    assert struct.unpack(">II", icon[16:24]) == (1024, 1024)
+    from PIL import Image
+    from generate_icon import SOURCE, EXPECTED_SOURCE_SHA256
+    assert sha256(SOURCE).upper() == EXPECTED_SOURCE_SHA256.upper()
+    with Image.open(SOURCE) as approved, Image.open(RESOURCES / "icon.png") as generated:
+        assert generated.convert("RGB").tobytes() == approved.convert("RGB").tobytes(), "Approved icon pixels changed"
 
-    java_files = list(ROOT.glob("**/src/main/java/**/*.java"))
+    java_files = [path for module in ("common", "fabric", "forge")
+                  for path in (ROOT / module / "src/main/java").rglob("*.java")]
     assert len(java_files) == 7
     for path in java_files:
         text = path.read_text(encoding="utf-8")
@@ -331,7 +360,7 @@ def validate_source_resources() -> None:
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
     assert readme.index("## English") < readme.index("## 中文")
     assert COPYRIGHT_SENTENCE in readme and "双方联合署名发布" not in readme
-    assert "213" in readme and "94" in readme and "13" in readme
+    assert "370" in readme and "157" in readme and "13" in readme
     assert all(version in readme for version in ("9.0.6", "10.0.0", "9.2.14"))
 
     fabric_metadata = load_json(ROOT / "fabric" / "src" / "main" / "resources" / "fabric.mod.json")
@@ -343,6 +372,8 @@ def validate_source_resources() -> None:
     assert 'license = "MIT"' in forge_metadata
     architectury_block = forge_dependency_block(forge_metadata, "architectury")
     assert f'versionRange = "{FORGE_ARCHITECTURY_RANGE}"' in architectury_block
+    from verify_phase_three import validate_generated_sources
+    validate_generated_sources(ROOT)
 
 
 def archive_json(archive: zipfile.ZipFile, name: str) -> Any:
@@ -350,13 +381,15 @@ def archive_json(archive: zipfile.ZipFile, name: str) -> Any:
 
 
 def validate_jar(path: Path) -> None:
+    assert "1.20.1" in path.name, "Use versions/1.21.1 verification for Java 21 port JARs"
     with zipfile.ZipFile(path) as archive:
         names = archive.namelist()
+        assert archive.testzip() is None, f"Corrupt ZIP entry in {path}"
         assert len(names) == len(set(names)), f"Duplicate ZIP entries in {path}"
         files = {name for name in names if not name.endswith("/")}
         expected_ids = source_ids()
         validate_catalog(archive_json(archive, CATALOG_ENTRY), expected_ids)
-        assert "icon.png" in files and struct.unpack(">II", archive.read("icon.png")[16:24]) == (512, 512)
+        assert "icon.png" in files and struct.unpack(">II", archive.read("icon.png")[16:24]) == (1024, 1024)
         for identifier in expected_ids:
             for entry in (
                 f"assets/{MOD_ID}/models/block/{identifier}.json",
@@ -368,7 +401,17 @@ def validate_jar(path: Path) -> None:
                 assert entry in files, f"Missing JAR resource: {entry}"
         for locale in LOCALES:
             language = archive_json(archive, f"assets/{MOD_ID}/lang/{locale}.json")
-            assert len(language) == 218 and not any(key.startswith("tooltip.") for key in language)
+            assert len(language) == 375 and not any(key.startswith("tooltip.") for key in language)
+        for resource in RESOURCES.rglob("*"):
+            if resource.is_file():
+                entry = resource.relative_to(RESOURCES).as_posix()
+                assert entry in files and archive.read(entry) == resource.read_bytes(), f"JAR/source resource mismatch: {entry}"
+        prefixes = (f"assets/{MOD_ID}/", f"data/{MOD_ID}/")
+        assert {name for name in files if name.startswith(prefixes)} == {
+            resource.relative_to(RESOURCES).as_posix()
+            for resource in RESOURCES.rglob("*") if resource.is_file()
+            and resource.relative_to(RESOURCES).as_posix().startswith(prefixes)
+        }, "Unexpected or missing mod resources inside JAR"
         assert archive.read("LICENSE") == (ROOT / "LICENSE").read_bytes()
 
         class_entries = [name for name in files if name.endswith(".class")]
@@ -408,10 +451,26 @@ def main() -> None:
     parser.add_argument("jars", nargs="*", type=Path)
     parser.add_argument("--legacy-resources", type=Path,
                         help="Optional 1.0.0 common/src/main/resources directory for compatibility checks")
+    parser.add_argument("--baseline-source", type=Path, help="Optional 1.1.2 source ZIP for all existing blocks")
+    parser.add_argument("--phase-three-source", type=Path, help="Optional extracted phase-three customer source directory")
+    parser.add_argument("--texture-overrides", type=Path, help="Optional three replacement PNGs directory")
+    parser.add_argument("--truck-proof", type=Path, help="Optional truck UV adaptation proof JSON")
+    parser.add_argument("--accessory-overrides", type=Path, help="Optional approved eight accessory BBMODEL/PNG pairs")
     arguments = parser.parse_args()
+    if arguments.accessory_overrides and not arguments.phase_three_source:
+        parser.error("--accessory-overrides requires --phase-three-source")
+    if arguments.phase_three_source and not all((arguments.baseline_source, arguments.texture_overrides, arguments.truck_proof)):
+        parser.error("--phase-three-source requires --baseline-source, --texture-overrides and --truck-proof")
     validate_source_resources()
     if arguments.legacy_resources:
         validate_legacy_compatibility(arguments.legacy_resources)
+    if arguments.baseline_source:
+        from verify_phase_three import validate_baseline, validate_customer_sources
+        old_ids = validate_baseline(ROOT, arguments.baseline_source)
+        if arguments.phase_three_source:
+            assert arguments.texture_overrides is not None and arguments.truck_proof is not None
+            validate_customer_sources(ROOT, old_ids, arguments.phase_three_source,
+                                      arguments.texture_overrides, arguments.truck_proof, arguments.accessory_overrides)
     for jar in arguments.jars:
         assert jar.is_file(), f"Missing JAR: {jar}"
         validate_jar(jar)

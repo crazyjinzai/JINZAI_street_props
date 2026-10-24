@@ -2,6 +2,8 @@
 
 The approved JPG is stored with the source tree so rebuilding the icon never
 depends on a temporary download path, network access, random state, or time.
+Keep the complete original frame at its native resolution: decode to RGB and
+write PNG without cropping, resizing, recoloring, or redrawing the artwork.
 
 本模组由"Crzay津仔"提供美术与资金支持，"QiZhang"提供技术实现与制作。
 发布署名仅为"Crzay津仔"，美术素材版权归 "Crzay津仔"所有，模组代码/配置版权归"QiZhang"所有。
@@ -12,14 +14,14 @@ from __future__ import annotations
 import hashlib
 from pathlib import Path
 
-from PIL import Image, ImageOps
+from PIL import Image
 
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "tools" / "icon_sources" / "jinzai_street_props_icon.jpg"
 OUTPUT = ROOT / "common" / "src" / "main" / "resources" / "icon.png"
-OUTPUT_SIZE = (512, 512)
-EXPECTED_SOURCE_SHA256 = "EEF5A636F22D54BF534727C0B67F562A5C2A6B29D29DC028C3E1232A8F0D27F5"
+OUTPUT_SIZE = (1024, 1024)
+EXPECTED_SOURCE_SHA256 = "8980681C247A286243BF20858F79D29955AC68583F75F34802DEC0C5AC265037"
 
 
 def sha256(path: Path) -> str:
@@ -38,17 +40,16 @@ def main() -> None:
         )
 
     with Image.open(SOURCE) as source_image:
-        upright = ImageOps.exif_transpose(source_image)
-        fitted = ImageOps.fit(
-            upright.convert("RGB"),
-            OUTPUT_SIZE,
-            method=Image.Resampling.LANCZOS,
-            centering=(0.5, 0.5),
-        )
+        if source_image.format != "JPEG" or source_image.size != OUTPUT_SIZE:
+            raise RuntimeError(
+                f"Unexpected approved artwork: format={source_image.format}, size={source_image.size}"
+            )
+        decoded = source_image.convert("RGB")
 
         # Copy into a fresh image so source EXIF/ICC metadata cannot enter the PNG.
-        icon = Image.new("RGB", OUTPUT_SIZE)
-        icon.paste(fitted)
+        # Preserve every decoded pixel; the customer's artwork needs no fitting.
+        icon = Image.new("RGB", decoded.size)
+        icon.paste(decoded)
 
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     icon.save(OUTPUT, format="PNG", optimize=False, compress_level=9)
@@ -58,6 +59,8 @@ def main() -> None:
             raise RuntimeError(
                 f"Unexpected generated icon: format={generated.format}, size={generated.size}"
             )
+        if generated.convert("RGB").tobytes() != icon.tobytes():
+            raise RuntimeError("Generated icon pixels differ from the approved artwork")
 
     print(f"Generated {OUTPUT} from {SOURCE}")
     print(f"Source SHA-256: {source_hash}")

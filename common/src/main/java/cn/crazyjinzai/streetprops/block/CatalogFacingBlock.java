@@ -17,9 +17,11 @@ import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
+import java.util.ArrayList;
 import java.util.EnumMap;
 import java.util.List;
 
@@ -121,14 +123,26 @@ public final class CatalogFacingBlock extends HorizontalDirectionalBlock {
     }
 
     private static VoxelShape union(List<ModelBox> boxes) {
-        VoxelShape shape = Shapes.empty();
+        List<VoxelShape> level = new ArrayList<>(boxes.size());
         for (ModelBox box : boxes) {
-            shape = Shapes.or(shape, Block.box(
+            level.add(Block.box(
                 box.minX(), box.minY(), box.minZ(),
                 box.maxX(), box.maxY(), box.maxZ()
             ));
         }
-        return shape.optimize();
+        // A balanced union avoids repeatedly simplifying the growing grid for
+        // every small section of a model-aligned rail. The exact union remains
+        // unchanged; simplify only once after all sections have been combined.
+        while (level.size() > 1) {
+            List<VoxelShape> next = new ArrayList<>((level.size() + 1) / 2);
+            for (int index = 0; index < level.size(); index += 2) {
+                next.add(index + 1 < level.size()
+                    ? Shapes.joinUnoptimized(level.get(index), level.get(index + 1), BooleanOp.OR)
+                    : level.get(index));
+            }
+            level = next;
+        }
+        return level.get(0).optimize();
     }
 
     private static List<ModelBox> rotateClockwise(List<ModelBox> boxes) {
